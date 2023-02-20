@@ -1,13 +1,3 @@
-/*
-
-TemplateMo 581 Kind Heart Charity
-
-https://templatemo.com/tm-581-kind-heart-charity
-
-*/
-
-
-
 @font-face {
     font-family: 'Metropolis';
     src: url('../fonts/Metropolis/Metropolis-Regular.woff2') format('woff2'),
@@ -49,12 +39,12 @@ https://templatemo.com/tm-581-kind-heart-charity
 -----------------------------------------*/
 :root {
   --white-color:                  #ffffff;
-  --primary-color:                #5bc1ac;
+  --primary-color:                #253777;
   --secondary-color:              #5a6f80;
   --section-bg-color:             #f0f8ff;
-  --site-footer-bg-color:         #44525d;
+  --site-footer-bg-color:         #7A93A5;
   --custom-btn-bg-color:          #597081;
-  --custom-btn-bg-hover-color:    #5bc1ac;
+  --custom-btn-bg-hover-color:    #253777;
   --dark-color:                   #000000;
   --p-color:                      #717275;
   --border-color:                 #e9eaeb;
@@ -215,13 +205,6 @@ strong {
 
 .custom-block-body {
   padding: 30px;
-}
-
-.custom-block-image {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
 }
 
 .custom-block .custom-btn {
@@ -715,53 +698,27 @@ strong {
 /*---------------------------------------
   VOLUNTEER              
 -----------------------------------------*/
-.volunteer-section {
+.aboutus-section {
   background: var(--secondary-color);
   position: relative;
   overflow: hidden;
 }
 
-.volunteer-section::after {
-  content: "";
-  background: var(--primary-color);
-  border-radius: 50%;
-  position: absolute;
-  bottom: -110px;
-  right: -80px;
-  width: 350px;
-  height: 350px;
-}
-
-.volunteer-form {
-  background: var(--white-color);
-  border-radius: var(--border-radius-medium);
-  padding: 50px;
-}
-
-.volunteer-image {
-  border-radius: 100%;
-  display: block;
-  margin: auto;
-  width: 300px;
-  height: 300px;
-  object-fit: cover;
-}
-
-.volunteer-section .custom-block-body {
+.aboutus-section .custom-block-body {
   max-width: 440px;
   margin: 0 auto;
 }
 
-.volunteer-section .custom-block-body p {
+.aboutus-section .custom-block-body p {
   line-height: 1.7;
 }
 
 
 /*---------------------------------------
-  DONATE              
+  VOLUNTEER              
 -----------------------------------------*/
-.donate-section {
-  background-image: url('../images/different-people-doing-volunteer-work.jpg');
+.volunteer-section {
+  background-image: url('/images/slide/Slide1.jpg');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -770,12 +727,11 @@ strong {
   padding-bottom: 150px;
 }
 
-.donate-form {
-  background: var(--white-color);
+.volunteer-form {
+  background-color: rgba(255, 255, 255, 0.7);
   border-radius: var(--border-radius-medium);
   position: relative;
   overflow: hidden;
-  padding: 50px;
 }
 
 
@@ -904,29 +860,17 @@ blockquote::before {
   color: var(--dark-color);
 }
 
-.cta-section {
+.section-top {
   position: relative;
   overflow: hidden;
 }
 
-.cta-section::before {
-  content: "";
-  background-color: var(--primary-color);
-  border-radius: 50%;
-  position: absolute;
-  top: -100px;
-  left: -30px;
-  margin: auto;
-  width: 200px;
-  height: 200px;
-}
-
-.cta-section::after {
+.section-top::before {
   content: "";
   border: 20px solid var(--custom-btn-bg-color);
   border-radius: 50%;
   position: absolute;
-  bottom: -100px;
+  top: -100px;
   right: 0;
   left: 0;
   margin: auto;
@@ -1293,10 +1237,6 @@ blockquote::before {
 	color: var(--white-color);
 }
 
-.site-footer-bottom a:hover {
-	color: #FF6;
-}
-
 .site-footer-link {
   color: var(--white-color);
 }
@@ -1381,14 +1321,9 @@ blockquote::before {
     min-height: inherit;
   }
 
-  .volunteer-section::after {
+  .aboutus-section::after {
     width: 450px;
     height: 450px;
-  }
-  
-  .volunteer-image {
-    width: 350px;
-    height: 350px;
   }
 }
 
@@ -1488,23 +1423,18 @@ blockquote::before {
     padding-bottom: 100px;
   }
 
-  .cta-section::before {
-    width: 150px;
-    height: 150px;
-  }
-
-  .cta-section::after {
+  .section-top::before {
     bottom: -60px;
     width: 100px;
     height: 100px;
   }
 
-  .cta-section .row {
+  .section-top .row {
     padding-top: 50px;
     padding-bottom: 50px;
   }
 
-  .volunteer-section::after {
+  .aboutus-section::after {
     width: 300px;
     height: 300px;
   }
@@ -1530,12 +1460,6 @@ blockquote::before {
   .about-image {
     width: inherit;
     height: 450px;
-  }
-
-  .volunteer-image {
-    width: 250px;
-    height: 250px;
-    margin: 0;
   }
 
   .custom-text-block {
@@ -1622,12 +1546,7 @@ blockquote::before {
     height: 45px;
   }
 
-  .volunteer-image {
-    width: 150px;
-    height: 150px;
-  }
-
-  .volunteer-section::after {
+  .aboutus-section::after {
     width: 200px;
     height: 200px;
   }
