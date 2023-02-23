@@ -177,7 +177,7 @@ strong {
 
 .section-accent h2 {
   color: var(--white-color);
-  margin: 3rem;
+  margin: 6rem 3rem;
 }
 
 .section-bg {
@@ -641,17 +641,22 @@ strong {
   margin: auto;
 }
 
+.note-card-title {
+  display: flex;
+  align-items: center!important;
+  height: 84px;
+  margin-bottom: 16px;
+}
+
 .note-card h5 {
-  text-align: left;
   color: var(--primary-color);
   font-size: 42px;
   font-weight: var(--font-weight-bold);
   line-height: 95%;
-  min-height: 2em;
 }
 
 .note-card p {
-  height: 4em;
+  height: 6em;
 }
 
 .note-card:hover {
