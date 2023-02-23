@@ -169,6 +169,17 @@ strong {
   padding-bottom: 100px;
 }
 
+.section-accent {
+  background-color: var(--primary-color);
+  margin-top: 8rem;
+  padding-bottom: 3rem;
+}
+
+.section-accent h2 {
+  color: var(--white-color);
+  margin: 3rem;
+}
+
 .section-bg {
   background-color: var(--section-bg-color);
 }
@@ -614,33 +625,30 @@ strong {
 /*---------------------------------------
   NOTE CARDS SECTION              
 -----------------------------------------*/
-.section-note-cards {
-  background-color: var(--primary-color);
-  margin-top: 8rem;
-  padding-bottom: 3rem;
-}
 
-.section-note-cards h2 {
-  color: var(--white-color);
-  margin: 3rem;
-}
-
-.section-note-cards .note-card {
+.note-card {
+  background-repeat: no-repeat;
+  background-image: url('/images/backgrounds/note-card.png');
+  background-position: top right;
   border-radius: 15px;
   background-color: var(--white-color);
   margin: 0.5rem 0.25rem;
-  padding: 3rem;
-  min-height: 230px;
+  padding: 7rem 0;
 }
 
-.section-note-cards .note-card h5 {
+.note-card .note-card-content {
+  width: 80%;
+  margin: auto;
+}
+
+.note-card h5 {
   text-align: left;
   color: var(--primary-color);
-  font-size: var(--h3-font-size);
+  font-size: var(--h2-font-size);
   font-weight: var(--font-weight-semibold);
   letter-spacing: -2px;
   line-height: 95%;
-  min-height: 61px;
+  min-height: 88px;
 }
 
 /*---------------------------------------
