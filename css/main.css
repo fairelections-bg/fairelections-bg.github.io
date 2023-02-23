@@ -617,10 +617,12 @@ strong {
 .section-note-cards {
   background-color: var(--primary-color);
   margin-top: 8rem;
+  padding-bottom: 3rem;
 }
 
 .section-note-cards h2 {
   color: var(--white-color);
+  margin: 3rem;
 }
 
 .section-note-cards .note-card {
