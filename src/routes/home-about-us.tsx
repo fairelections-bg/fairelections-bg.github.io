@@ -1,3 +1,5 @@
+/* eslint-disable react/jsx-no-target-blank */
+
 import React from 'react';
 import './home-about-us.scss';
 import logoImage from 'images/logos/fair-elections.png';
@@ -27,7 +29,7 @@ export const HomeAboutUs = () => {
                             <p>ОЧИ ще използва данни, за да насочва вниманието на медии и доброволци към местата в
                                 страната с изборни аномалии, които са индикатор за купен вот или друг вид измами.</p>
 
-                            <a href="https://acf.bg/bg/obedinenie-za-chestni-izbori-shte-rab/" target="_blank" rel="noreferrer"
+                            <a href="https://acf.bg/bg/obedinenie-za-chestni-izbori-shte-rab/" target="_blank"
                                 className="custom-btn btn">прочети повече</a>
                         </div>
                     </div>

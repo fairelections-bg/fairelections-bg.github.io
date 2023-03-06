@@ -1,6 +1,9 @@
+/* eslint-disable react/jsx-no-target-blank */
+
 import React from 'react';
 import './footer.scss';
 import logo from 'images/logo.png';
+import { Link } from "react-router-dom";
 
 export const Footer = () => {
     return (
@@ -16,10 +19,10 @@ export const Footer = () => {
 
                         <ul className="footer-menu">
                             <li className="footer-menu-item">
-                                <a href="/volunteer" className="footer-menu-link">Запиши се</a>
+                                <Link to="/volunteer" className="footer-menu-link">Запиши се</Link>
                             </li>
                             <li className="footer-menu-item">
-                                <a href="/submit-signal" className="footer-menu-link">Подай сигнал</a>
+                                <Link to="/submit-signal" className="footer-menu-link">Подай сигнал</Link>
                             </li>
                         </ul>
                     </div>
@@ -52,7 +55,7 @@ export const Footer = () => {
                         <div className="col-lg-6 col-md-5 col-12 d-flex justify-content-center align-items-center mx-auto">
                             <ul className="social-icon">
                                 <li className="social-icon-item">
-                                    <a href="https://www.facebook.com/fairelections.bg" target="_blank" rel="noreferrer"
+                                    <a href="https://www.facebook.com/fairelections.bg" target="_blank"
                                         className="social-icon-link bi-facebook"> </a>
                                 </li>
                             </ul>

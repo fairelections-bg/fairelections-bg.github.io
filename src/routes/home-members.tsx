@@ -1,4 +1,5 @@
-import React from 'react';
+/* eslint-disable react/jsx-no-target-blank */
+
 import dataForGoodLogo from 'images/logos/data-for-good-bg.png';
 import obshtestvoLogo from 'images/logos/obshtestvo-bg.png';
 import anticorruptionFundLogo from 'images/logos/anticorruption-fund.png';
@@ -16,7 +17,7 @@ import zaIstinataLogo from 'images/logos/za-istinata.png';
 const HomeMemberItem = (props: any) => {
     return (
         <div className="col-lg-4 col-md-6 col-12 mb-4">
-            <a href={props.url} target="_blank" rel="noreferrer">
+            <a href={props.url} target="_blank">
                 <div className="custom-block-wrap text-center pt-4">
                     <img src={props.logo} className="img-fluid" alt={props.name} />
                     <div className="custom-block">

@@ -2,12 +2,14 @@
 import React from 'react';
 import './top-navigation.scss'
 import logo from 'images/logo.png';
+import { Link } from "react-router-dom";
+import { HashLink } from 'react-router-hash-link';
 
 export const TopNavigation = () => {
     return (
         <nav className="navbar navbar-expand-lg bg-light shadow-lg sticky-top">
             <div className="container">
-                <a className="navbar-brand" href="/">
+                <HashLink className="navbar-brand" to="/#">
                     <img src={logo} className="logo img-fluid" alt="Обединение Честни Избори (О.Ч.И)" />
                     <span className="d-inline-block d-md-none">
                         <span>О.Ч.И</span>
@@ -17,7 +19,7 @@ export const TopNavigation = () => {
                         Обединение Честни Избори (О.Ч.И)
                         <small>Платформа за борба срещу изборните измами, <br />купуването на гласове и контролирания вот</small>
                     </span>
-                </a>
+                </HashLink>
 
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -28,19 +30,19 @@ export const TopNavigation = () => {
                     <ul className="navbar-nav ms-auto">
 
                         <li className="nav-item">
-                            <a className="nav-link click-scroll" href="/#about-us">За Нас</a>
+                            <HashLink className="nav-link click-scroll" to="/#about-us">За Нас</HashLink>
                         </li>
 
                         <li className="nav-item">
-                            <a className="nav-link click-scroll" href="/#members">Членове</a>
+                            <HashLink className="nav-link click-scroll" to="/#members">Членове</HashLink>
                         </li>
 
                         <li className="nav-item">
-                            <a className="nav-link" href="/submit-signal">Подай сигнал</a>
+                            <Link className="nav-link" to="/submit-signal">Подай сигнал</Link>
                         </li>
 
                         <li className="nav-item ms-3">
-                            <a className="nav-link custom-btn custom-border-btn btn" href="/volunteer">Запиши се</a>
+                            <Link className="nav-link custom-btn custom-border-btn btn" to="/volunteer">Запиши се</Link>
                         </li>
                     </ul>
                 </div>

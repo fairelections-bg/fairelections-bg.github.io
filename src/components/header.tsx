@@ -1,3 +1,5 @@
+/* eslint-disable react/jsx-no-target-blank */
+
 import React from 'react';
 import './header.scss'
 
@@ -20,7 +22,7 @@ export const Header = () => {
                     <div className="col-lg-3 col-12 ms-auto d-lg-block d-none">
                         <ul className="social-icon">
                             <li className="social-icon-item">
-                                <a href="https://www.facebook.com/fairelections.bg" target="_blank" rel="noreferrer"
+                                <a href="https://www.facebook.com/fairelections.bg" target="_blank"
                                     className="social-icon-link bi-facebook"> </a>
                             </li>
                         </ul>
