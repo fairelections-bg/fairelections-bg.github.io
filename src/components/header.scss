@@ -1,0 +1,24 @@
+.site-header {
+    background: var(--primary-color);
+    padding-top: 15px;
+    padding-bottom: 10px;
+}
+
+.site-header p,
+.site-header p a,
+.site-header .social-icon-link {
+    color: var(--white-color);
+    font-size: var(--copyright-font-size);
+}
+
+.site-header .social-icon {
+    text-align: right;
+}
+
+.site-header .social-icon-link {
+    background: transparent;
+    width: inherit;
+    height: inherit;
+    line-height: inherit;
+    margin-right: 15px;
+}

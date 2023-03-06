@@ -1,0 +1,654 @@
+// Import Bootstrap and its default variables
+@import "node_modules/bootstrap/scss/bootstrap";
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+
+/*---------------------------------------
+    CUSTOM PROPERTIES ( VARIABLES )             
+  -----------------------------------------*/
+:root {
+    --white-color: #ffffff;
+    --primary-color: #253777;
+    --secondary-color: #5a6f80;
+    --section-bg-color: #f0f8ff;
+    --site-footer-bg-color: #7A93A5;
+    --custom-btn-bg-color: #597081;
+    --custom-btn-bg-hover-color: #253777;
+    --dark-color: #000000;
+    --p-color: #717275;
+    --border-color: #e9eaeb;
+
+    --body-font-family: 'Metropolis', sans-serif;
+
+    --h1-font-size: 52px;
+    --h2-font-size: 46px;
+    --h3-font-size: 32px;
+    --h4-font-size: 28px;
+    --h5-font-size: 24px;
+    --h6-font-size: 22px;
+    --p-font-size: 16px;
+    --btn-font-size: 18px;
+    --copyright-font-size: 14px;
+
+    --border-radius-large: 100px;
+    --border-radius-medium: 20px;
+    --border-radius-small: 10px;
+
+    --font-weight-light: 300;
+    --font-weight-normal: 400;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+}
+
+body {
+    background-color: var(--white-color);
+    font-family: var(--body-font-family);
+}
+
+
+/*---------------------------------------
+    TYPOGRAPHY               
+  -----------------------------------------*/
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--dark-color);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: -1px;
+}
+
+h1 {
+    font-size: var(--h1-font-size);
+    font-weight: var(--font-weight-bold);
+    letter-spacing: -2px;
+}
+
+h2 {
+    color: var(--secondary-color);
+    font-size: var(--h2-font-size);
+    letter-spacing: -2px;
+}
+
+h3 {
+    font-size: var(--h3-font-size);
+}
+
+h4 {
+    font-size: var(--h4-font-size);
+}
+
+h5 {
+    color: var(--primary-color);
+    font-size: var(--h5-font-size);
+}
+
+h6 {
+    font-size: var(--h6-font-size);
+}
+
+p {
+    color: var(--p-color);
+    font-size: var(--p-font-size);
+    font-weight: var(--font-weight-light);
+}
+
+ul li {
+    color: var(--p-color);
+    font-size: var(--p-font-size);
+    font-weight: var(--font-weight-normal);
+}
+
+a,
+button {
+    touch-action: manipulation;
+    transition: all 0.3s;
+}
+
+a {
+    color: var(--p-color);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--primary-color);
+}
+
+b,
+strong {
+    font-weight: var(--font-weight-bold);
+}
+
+
+/*---------------------------------------
+    SECTION               
+  -----------------------------------------*/
+.section-padding {
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.section-accent {
+    background-color: var(--primary-color);
+    margin-top: 8rem;
+    padding-bottom: 3rem;
+}
+
+.section-accent h2 {
+    color: var(--white-color);
+    margin: 6rem 3rem;
+}
+
+.section-bg {
+    background-color: var(--section-bg-color);
+}
+
+.section-overlay {
+    background: rgba(0, 0, 0, 0.35);
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    width: 100%;
+    height: 100%;
+}
+
+.section-overlay+.container {
+    position: relative;
+}
+
+
+/*---------------------------------------
+    CUSTOM BLOCK               
+  -----------------------------------------*/
+.custom-block-wrap {
+    background: var(--white-color);
+    border-radius: var(--border-radius-medium);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s;
+}
+
+.custom-block-wrap:hover {
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, .175);
+}
+
+.custom-block-body {
+    padding: 30px;
+}
+
+.custom-block .custom-btn {
+    border-radius: 0;
+    display: block;
+}
+
+/*---------------------------------------
+    CUSTOM TEXT BOX               
+  -----------------------------------------*/
+.custom-text-box {
+    background: var(--white-color);
+    border-radius: var(--border-radius-medium);
+    margin-bottom: 24px;
+    padding: 40px;
+}
+
+.custom-text-box-image {
+    border-radius: var(--border-radius-medium);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.custom-text-box-icon {
+    background: var(--section-bg-color);
+    border-radius: var(--border-radius-large);
+    color: var(--secondary-color);
+    font-size: var(--h6-font-size);
+    text-align: center;
+    display: inline-block;
+    vertical-align: middle;
+    width: 25px;
+    height: 25px;
+    line-height: 30px;
+}
+
+
+/*---------------------------------------
+    CUSTOM BUTTON               
+  -----------------------------------------*/
+.custom-btn {
+    background: var(--secondary-color);
+    border: 2px solid transparent;
+    border-radius: var(--border-radius-large);
+    color: var(--white-color);
+    font-size: var(--btn-font-size);
+    font-weight: var(--font-weight-normal);
+    line-height: normal;
+    padding: 15px 25px;
+}
+
+.navbar-expand-lg .navbar-nav .nav-link.custom-btn {
+    color: var(--custom-btn-bg-color);
+    margin-top: 8px;
+    padding: 12px 25px;
+}
+
+.custom-btn:hover {
+    background: var(--primary-color);
+    color: var(--white-color);
+}
+
+.custom-border-btn {
+    background: transparent;
+    border: 2px solid var(--custom-btn-bg-color);
+    color: var(--primary-color);
+}
+
+.navbar-expand-lg .navbar-nav .nav-link.custom-btn:hover,
+.custom-border-btn:hover {
+    background: var(--custom-btn-bg-hover-color);
+    border-color: transparent;
+    color: var(--white-color);
+}
+
+
+/*---------------------------------------
+    HERO & HERO SLIDE         
+  -----------------------------------------*/
+.hero-section-full-height {
+    height: 680px;
+    min-height: 680px;
+    position: relative;
+}
+
+.carousel:hover .carousel-control-next-icon,
+.carousel:hover .carousel-control-prev-icon {
+    opacity: 1;
+}
+
+#hero-slide .carousel-item {
+    height: 680px;
+    min-height: 680px;
+}
+
+#hero-slide .carousel-caption {
+    background: var(--white-color);
+    clip-path: polygon(100% 100%, 100% 150px, 0 100%);
+    color: var(--secondary-color);
+    top: 1px;
+    bottom: -1px;
+    right: 0;
+    left: auto;
+    text-align: right;
+    min-width: 680px;
+    min-height: 680px;
+    padding: 100px 100px 50px 100px;
+}
+
+.carousel-image {
+    display: block;
+    width: 100%;
+    min-height: 680px;
+}
+
+#hero-slide .carousel-indicators-wrap {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+
+#hero-slide .carousel-indicators {
+    margin-right: 0;
+    margin-left: 22px;
+    justify-content: inherit;
+}
+
+.carousel-control-next,
+.carousel-control-prev {
+    opacity: 1;
+}
+
+.carousel-control-next-icon,
+.carousel-control-prev-icon {
+    background-color: var(--secondary-color);
+    border-radius: var(--border-radius-large);
+    background-size: 60% 60%;
+    width: 80px;
+    height: 80px;
+    opacity: 0;
+    transition: all 0.5s;
+}
+
+.carousel-control-next-icon:hover,
+.carousel-control-prev-icon:hover {
+    background-color: var(--primary-color);
+}
+
+/*---------------------------------------
+    NOTE CARDS              
+  -----------------------------------------*/
+
+.note-card {
+    background-repeat: no-repeat;
+    background-image: url('/images/backgrounds/note-card.svg');
+    background-position: top right;
+    border-radius: 15px;
+    background-color: var(--white-color);
+    margin: 0.5rem;
+    padding: 6rem 0 3rem 0;
+}
+
+.note-card .note-card-content {
+    width: 80%;
+    margin: auto;
+}
+
+.note-card-title {
+    display: flex;
+    align-items: center !important;
+    height: 84px;
+    margin-bottom: 16px;
+}
+
+.note-card h5 {
+    color: var(--primary-color);
+    font-size: 42px;
+    font-weight: var(--font-weight-bold);
+    line-height: 95%;
+}
+
+.note-card p {
+    height: 6em;
+}
+
+.note-card:hover {
+    background-image: url('/images/backgrounds/note-card-hover.svg');
+    background-color: #495B9B;
+    color: var(--white-color);
+    margin: 0;
+    padding: 6.5rem 0.5rem 3.5rem 0.5rem;
+}
+
+.note-card:hover * {
+    color: var(--white-color);
+}
+
+
+
+/*---------------------------------------
+    FEATURE BLOCK              
+  -----------------------------------------*/
+.featured-block {
+    text-align: center;
+    transition: all 0.5s ease;
+    min-height: 256px;
+    padding: 15px;
+}
+
+.featured-block:hover {
+    background: var(--white-color);
+    border-radius: var(--border-radius-medium);
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, .175);
+}
+
+.featured-block:hover .featured-block-image {
+    transform: scale(0.75);
+}
+
+.featured-block-image {
+    display: block;
+    margin: auto;
+    transition: all 0.5s;
+}
+
+.featured-block:hover .featured-block-text {
+    margin-top: 0;
+}
+
+.featured-block-text {
+    color: var(--primary-color);
+    font-size: var(--h5-font-size);
+    margin-top: 20px;
+    transition: all 0.5s;
+}
+
+/*---------------------------------------
+    SOCIAL ICON               
+  -----------------------------------------*/
+.social-icon {
+    margin: 0;
+    padding: 0;
+}
+
+.social-icon-item {
+    list-style: none;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.social-icon-link {
+    background: var(--site-footer-bg-color);
+    border-radius: var(--border-radius-large);
+    color: var(--white-color);
+    font-size: var(--copyright-font-size);
+    display: block;
+    margin-right: 5px;
+    text-align: center;
+    width: 35px;
+    height: 35px;
+    line-height: 38px;
+}
+
+.social-icon-link:hover {
+    background: var(--primary-color);
+    color: var(--white-color);
+}
+
+
+/*---------------------------------------
+    RESPONSIVE STYLES               
+  -----------------------------------------*/
+@media screen and (min-width: 1600px) {
+    .featured-block {
+        min-height: inherit;
+    }
+
+    .aboutus-section::after {
+        width: 450px;
+        height: 450px;
+    }
+}
+
+@media screen and (max-width: 1170px) {
+    #hero-slide .carousel-image {
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    h1 {
+        font-size: 42px;
+    }
+
+    h2 {
+        font-size: 36px;
+    }
+
+    h3 {
+        font-size: 32px;
+    }
+
+    h4 {
+        font-size: 28px;
+    }
+
+    h5 {
+        font-size: 20px;
+    }
+
+    h6 {
+        font-size: 18px;
+    }
+
+    .section-padding {
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+
+    .hero-form {
+        padding-bottom: 40px;
+    }
+
+    .donate-form {
+        padding: 35px;
+    }
+
+    .navbar {
+        padding-top: 6px;
+        padding-bottom: 6px;
+    }
+
+    .navbar-expand-lg .navbar-nav {
+        padding-bottom: 30px;
+    }
+
+    .navbar-expand-lg .navbar-nav .nav-link {
+        padding: 8px 20px;
+    }
+
+    .site-header .social-icon {
+        text-align: left;
+        margin-top: 5px;
+    }
+
+    .hero-section-full-height {
+        height: inherit;
+    }
+
+    .carousel:hover .carousel-control-next-icon,
+    .carousel:hover .carousel-control-prev-icon {
+        opacity: 1;
+    }
+
+    #hero-slide .carousel-item {
+        height: inherit;
+    }
+
+    .carousel-control-prev {
+        left: 12px;
+    }
+
+    .carousel-control-next {
+        right: 12px;
+    }
+
+    .carousel-control-next-icon,
+    .carousel-control-prev-icon {
+        opacity: 1;
+        width: 60px;
+        height: 60px;
+    }
+
+    .news-detail-header-section {
+        padding-top: 100px;
+        padding-bottom: 100px;
+    }
+
+    .section-top::before {
+        bottom: -60px;
+        width: 100px;
+        height: 100px;
+    }
+
+    .section-top .row {
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+
+    .aboutus-section::after {
+        width: 300px;
+        height: 300px;
+    }
+
+    blockquote {
+        padding: 70px 30px 30px 30px;
+    }
+
+    .counter-number,
+    .counter-number-text {
+        font-size: var(--h2-font-size);
+    }
+
+    .contact-info-wrap {
+        padding-top: 0;
+    }
+}
+
+@media screen and (max-width: 580px) {
+
+    .hero-section-full-height,
+    #hero-slide .carousel-item,
+    .carousel-image {
+        min-height: 520px;
+    }
+
+    #hero-slide .carousel-caption {
+        clip-path: polygon(100% 100%, 100% 100px, 0 100%);
+        padding-right: 50px;
+        min-width: inherit;
+        min-height: inherit;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    h1 {
+        font-size: 40px;
+    }
+
+    h2 {
+        font-size: 28px;
+    }
+
+    h3 {
+        font-size: 26px;
+    }
+
+    h4 {
+        font-size: 22px;
+    }
+
+    h5 {
+        font-size: 20px;
+    }
+
+    #hero-slide .carousel-caption {
+        min-width: inherit;
+        padding-bottom: 30px;
+    }
+
+    .carousel-control-next-icon,
+    .carousel-control-prev-icon {
+        width: 45px;
+        height: 45px;
+    }
+
+    .aboutus-section::after {
+        width: 200px;
+        height: 200px;
+    }
+
+    .social-share .tags-block {
+        margin-bottom: 10px;
+    }
+}
