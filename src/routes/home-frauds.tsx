@@ -1,5 +1,11 @@
+import { ReactNode } from "react";
 
-const HomeFraudsItem = (props: any) => {
+type HomeFraudsItemProps = {
+    title: ReactNode;
+    description: string;
+}
+
+const HomeFraudsItem = (props: HomeFraudsItemProps) => {
     return (
         <div className="col-xl-4 col-md-6 col-12 p-1">
             <div className="note-card">
