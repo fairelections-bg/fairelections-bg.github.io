@@ -1,6 +1,5 @@
 /* eslint-disable react/jsx-no-target-blank */
 
-import React from 'react';
 import './home-about-us.scss';
 import logoImage from 'images/logos/fair-elections.png';
 

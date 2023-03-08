@@ -1,4 +1,3 @@
-import React from 'react';
 import { HomeCarousel } from './home-carousel';
 import { HomeWelcome } from './home-welcome';
 import { HomeAboutUs } from './home-about-us';

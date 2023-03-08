@@ -1,4 +1,3 @@
-import React from 'react';
 import slide1 from 'images/slide/Slide1.jpg';
 import slide2 from 'images/slide/Slide2.jpg';
 import slide3 from 'images/slide/Slide3.jpg';

@@ -1,4 +1,3 @@
-import React from 'react';
 import volunteerImage from 'images/icons/volunteer.png';
 import submitSignalImage from 'images/icons/submit-signal.png';
 import { Link } from "react-router-dom";

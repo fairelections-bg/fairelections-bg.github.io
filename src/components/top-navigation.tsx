@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from 'react';
+
 import './top-navigation.scss'
+
 import logo from 'images/logo.png';
 import { Link } from "react-router-dom";
 import { HashLink } from 'react-router-hash-link';

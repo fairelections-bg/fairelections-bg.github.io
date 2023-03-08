@@ -1,6 +1,5 @@
 /* eslint-disable react/jsx-no-target-blank */
 
-import React from 'react';
 import './footer.scss';
 import logo from 'images/logo.png';
 import { Link } from "react-router-dom";

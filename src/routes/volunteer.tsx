@@ -1,4 +1,3 @@
-import React from 'react';
 import './volunteer.scss';
 
 export const Volunteer = () => {
