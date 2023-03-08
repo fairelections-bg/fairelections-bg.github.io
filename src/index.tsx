@@ -1,3 +1,5 @@
+// Design from - https://templatemo.com/tm-581-kind-heart-charity
+
 import 'css/bootstrap.scss';
 import 'bootstrap/dist/js/bootstrap';
 

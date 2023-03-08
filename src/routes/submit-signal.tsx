@@ -1,11 +1,4 @@
-import { useEffect } from "react";
-import { ScrollRestoration } from "react-router-dom";
-
 export const SubmitSignal = () => {
-
-    useEffect(() => {
-        window.scrollTo(0, 0);
-    }, []);
 
     return (
         <section className="section-padding">

@@ -18,6 +18,14 @@ export const Footer = () => {
 
                         <ul className="footer-menu">
                             <li className="footer-menu-item">
+                                <Link className="footer-menu-link" to="/about-us">За Нас</Link>
+                            </li>
+
+                            <li className="footer-menu-item">
+                                <Link className="footer-menu-link" to="/members">Членове</Link>
+                            </li>
+
+                            <li className="footer-menu-item">
                                 <Link to="/volunteer" className="footer-menu-link">Запиши се</Link>
                             </li>
                             <li className="footer-menu-item">
@@ -45,7 +53,7 @@ export const Footer = () => {
                     <div className="row">
 
                         <div className="col-lg-6 col-md-7 col-12">
-                            <p className="copyright-text mb-0">Copyright © 2023 <a href="/#top">Обединение Честни Избори
+                            <p className="copyright-text mb-0">Copyright © 2023 <a href="/">Обединение Честни Избори
                                 (О.Ч.И)</a>
                                 <br />Платформа за борба срещу изборните измами, купуването на гласове и контролирания вот
                             </p>

@@ -4,13 +4,12 @@ import './top-navigation.scss'
 
 import logo from 'images/logo.png';
 import { Link } from "react-router-dom";
-import { HashLink } from 'react-router-hash-link';
 
 export const TopNavigation = () => {
     return (
         <nav className="navbar navbar-expand-lg bg-light shadow-lg sticky-top">
             <div className="container">
-                <HashLink className="navbar-brand" to="/#">
+                <Link className="navbar-brand" to="/">
                     <img src={logo} className="logo img-fluid" alt="Обединение Честни Избори (О.Ч.И)" />
                     <span className="d-inline-block d-md-none">
                         <span>О.Ч.И</span>
@@ -20,7 +19,7 @@ export const TopNavigation = () => {
                         Обединение Честни Избори (О.Ч.И)
                         <small>Платформа за борба срещу изборните измами, <br />купуването на гласове и контролирания вот</small>
                     </span>
-                </HashLink>
+                </Link>
 
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,11 +30,11 @@ export const TopNavigation = () => {
                     <ul className="navbar-nav ms-auto">
 
                         <li className="nav-item">
-                            <HashLink className="nav-link click-scroll" to="/#about-us">За Нас</HashLink>
+                            <Link className="nav-link click-scroll" to="/about-us">За Нас</Link>
                         </li>
 
                         <li className="nav-item">
-                            <HashLink className="nav-link click-scroll" to="/#members">Членове</HashLink>
+                            <Link className="nav-link click-scroll" to="/members">Членове</Link>
                         </li>
 
                         <li className="nav-item">
