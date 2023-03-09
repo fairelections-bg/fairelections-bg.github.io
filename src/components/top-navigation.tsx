@@ -3,7 +3,7 @@
 import './top-navigation.scss'
 
 import logo from 'images/logo.png';
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 export const TopNavigation = () => {
     return (
@@ -30,19 +30,19 @@ export const TopNavigation = () => {
                     <ul className="navbar-nav ms-auto">
 
                         <li className="nav-item">
-                            <Link className="nav-link click-scroll" to="/about-us">За Нас</Link>
+                            <NavLink className="nav-link click-scroll" to="/about-us">За Нас</NavLink>
                         </li>
 
                         <li className="nav-item">
-                            <Link className="nav-link click-scroll" to="/members">Членове</Link>
+                            <NavLink className="nav-link click-scroll" to="/members">Членове</NavLink>
                         </li>
 
                         <li className="nav-item">
-                            <Link className="nav-link" to="/submit-signal">Подай сигнал</Link>
+                            <NavLink className="nav-link" to="/submit-signal">Подай сигнал</NavLink>
                         </li>
 
                         <li className="nav-item ms-3">
-                            <Link className="nav-link custom-btn custom-border-btn btn" to="/volunteer">Запиши се</Link>
+                            <NavLink className="nav-link custom-btn custom-border-btn btn" to="/volunteer">Запиши се</NavLink>
                         </li>
                     </ul>
                 </div>
