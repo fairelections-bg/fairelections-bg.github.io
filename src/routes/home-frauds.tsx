@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import { NavLink } from "react-router-dom";
 
 type HomeFraudsItemProps = {
     title: ReactNode;
@@ -39,6 +40,11 @@ export const HomeFrauds = () => {
                     <HomeFraudsItem title="И още..." description="" />
 
                 </div>
+
+                <div className="pt-5 text-center">
+                    <NavLink className="custom-btn btn" to="/frauds">Виж всички</NavLink>
+                </div>
+
             </div>
         </section>
     );

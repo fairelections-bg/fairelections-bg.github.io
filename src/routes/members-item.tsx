@@ -1,12 +1,12 @@
 /* eslint-disable react/jsx-no-target-blank */
 
-type MemberItemProps = {
+type MembersItemProps = {
     logo: string;
     url: string;
     name: string;
     description: string;
 }
-export const MemberItem = (props: MemberItemProps) => {
+export const MembersItem = (props: MembersItemProps) => {
     return (
         <div className="col-lg-4 col-md-6 col-12 mb-4">
             <a href={props.url} target="_blank">

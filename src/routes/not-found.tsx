@@ -1,5 +1,5 @@
 
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 export const NotFound = () => {
 
@@ -10,7 +10,7 @@ export const NotFound = () => {
           <div className="col-lg-10 col-12 text-center mx-auto">
             <h2 className="mb-5">Страницата не може да бъде намерена.</h2>
             <p>
-              <Link className="custom-btn btn" to="/">Към началната страница</Link>
+              <NavLink className="custom-btn btn" to="/">Към началната страница</NavLink>
             </p>
           </div>
         </div>

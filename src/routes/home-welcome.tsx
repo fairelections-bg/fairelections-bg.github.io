@@ -1,6 +1,6 @@
 import volunteerImage from 'images/icons/volunteer.png';
 import submitSignalImage from 'images/icons/submit-signal.png';
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 export const HomeWelcome = () => {
     return (
@@ -16,19 +16,19 @@ export const HomeWelcome = () => {
 
                     <div className="col-lg-3 col-md-6 col-12 mb-4 mb-lg-0 mb-md-4">
                         <div className="featured-block d-flex justify-content-center align-items-center">
-                            <Link to="/volunteer" className="d-block">
+                            <NavLink to="/volunteer" className="d-block">
                                 <img src={volunteerImage} className="featured-block-image img-fluid" alt="доброволец" />
                                 <p className="featured-block-text">Запиши се <strong>доброволец</strong></p>
-                            </Link>
+                            </NavLink>
                         </div>
                     </div>
 
                     <div className="col-lg-3 col-md-6 col-12 mb-4 mb-lg-0 mb-md-4">
                         <div className="featured-block d-flex justify-content-center align-items-center">
-                            <Link to="/submit-signal" className="d-block">
+                            <NavLink to="/submit-signal" className="d-block">
                                 <img src={submitSignalImage} className="featured-block-image img-fluid" alt="сигнал" />
                                 <p className="featured-block-text">Подай <strong>сигнал</strong></p>
-                            </Link>
+                            </NavLink>
                         </div>
                     </div>
                 </div>

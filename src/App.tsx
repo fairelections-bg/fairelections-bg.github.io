@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Home } from 'routes/home';
 import { AboutUs } from "routes/about-us";
 import { Members } from "routes/members";
+import { Frauds } from "routes/frauds";
 import { SubmitSignal } from 'routes/submit-signal';
 import { Volunteer } from 'routes/volunteer';
 import { NotFound } from 'routes/not-found';
@@ -16,6 +17,7 @@ export const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/members" element={<Members />} />
+          <Route path="/frauds" element={<Frauds />} />
           <Route path="/volunteer" element={<Volunteer />} />
           <Route path="/submit-signal" element={<SubmitSignal />} />
           <Route path="*" element={<NotFound />} />

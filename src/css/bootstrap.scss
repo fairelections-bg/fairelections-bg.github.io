@@ -338,6 +338,17 @@ strong {
     NOTE CARDS              
   -----------------------------------------*/
 
+.section-accent .custom-btn {
+    color: var(--primary-color);
+    background-color: var(--white-color);
+}
+
+.section-accent .custom-btn:hover {
+    color: var(--white-color);
+    background-color: #495B9B;
+}
+
+
 .note-card {
     background-repeat: no-repeat;
     background-image: url('/images/backgrounds/note-card.svg');
@@ -383,6 +394,34 @@ strong {
     color: var(--white-color);
 }
 
+/*---------------------------------------
+    FRAUD SECTION              
+  -----------------------------------------*/
+
+.section-frauds {
+    max-width: 800px;
+    margin: 0 auto;
+
+    h3 {
+        color: var(--secondary-color);
+    }
+
+    h4 {
+        color: var(--p-color);
+        font-weight: 400;
+        font-size: 20px;
+        font-style: italic;
+    }
+
+    img {
+        width:100%;
+        padding: 2rem 0;
+    }
+
+    p {
+        margin: 1rem 0;
+    }
+}
 
 
 /*---------------------------------------
@@ -461,11 +500,6 @@ strong {
 @media screen and (min-width: 1600px) {
     .featured-block {
         min-height: inherit;
-    }
-
-    .aboutus-section::after {
-        width: 450px;
-        height: 450px;
     }
 }
 
@@ -576,11 +610,6 @@ strong {
         padding-bottom: 50px;
     }
 
-    .aboutus-section::after {
-        width: 300px;
-        height: 300px;
-    }
-
     blockquote {
         padding: 70px 30px 30px 30px;
     }
@@ -641,11 +670,6 @@ strong {
     .carousel-control-prev-icon {
         width: 45px;
         height: 45px;
-    }
-
-    .aboutus-section::after {
-        width: 200px;
-        height: 200px;
     }
 
     .social-share .tags-block {

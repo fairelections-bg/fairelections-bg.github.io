@@ -2,7 +2,7 @@
 
 import './footer.scss';
 import logo from 'images/logo.png';
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 export const Footer = () => {
     return (
@@ -18,18 +18,22 @@ export const Footer = () => {
 
                         <ul className="footer-menu">
                             <li className="footer-menu-item">
-                                <Link className="footer-menu-link" to="/about-us">За Нас</Link>
+                                <NavLink className="footer-menu-link" to="/about-us">За Нас</NavLink>
                             </li>
 
                             <li className="footer-menu-item">
-                                <Link className="footer-menu-link" to="/members">Членове</Link>
+                                <NavLink className="footer-menu-link" to="/members">Членове</NavLink>
                             </li>
 
                             <li className="footer-menu-item">
-                                <Link to="/volunteer" className="footer-menu-link">Запиши се</Link>
+                                <NavLink className="footer-menu-link" to="/frauds">Измами</NavLink>
+                            </li>
+
+                            <li className="footer-menu-item">
+                                <NavLink to="/volunteer" className="footer-menu-link">Запиши се</NavLink>
                             </li>
                             <li className="footer-menu-item">
-                                <Link to="/submit-signal" className="footer-menu-link">Подай сигнал</Link>
+                                <NavLink to="/submit-signal" className="footer-menu-link">Подай сигнал</NavLink>
                             </li>
                         </ul>
                     </div>

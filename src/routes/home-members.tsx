@@ -1,5 +1,5 @@
-import { MemberItem } from './member-item';
-import { Link } from 'react-router-dom';
+import { MembersItem } from './members-item';
+import { NavLink } from 'react-router-dom';
 
 import dataForGoodLogo from 'images/logos/data-for-good-bg.png';
 import obshtestvoLogo from 'images/logos/obshtestvo-bg.png';
@@ -15,21 +15,21 @@ export const HomeMembers = () => {
                         <h2>Членове</h2>
                     </div>
 
-                    <MemberItem
+                    <MembersItem
                         name="Данни за добро"
                         url="https://data-for-good.bg/"
                         logo={dataForGoodLogo}
                         description="Подкрепя гражданския сектор, като предоставя знания и услуги свързани с обработка и анализ на данни."
                     />
 
-                    <MemberItem
+                    <MembersItem
                         name="Общество"
                         url="https://www.obshtestvo.bg/"
                         logo={obshtestvoLogo}
                         description="Независими създатели на електронни инструменти за бърза и удобна връзка държава–гражданин."
                     />
 
-                    <MemberItem
+                    <MembersItem
                         name="Антикорупционен фонд"
                         url="https://acf.bg/bg/"
                         logo={anticorruptionFundLogo}
@@ -37,7 +37,7 @@ export const HomeMembers = () => {
                     />
 
                     <div className="text-center">
-                        <Link className="custom-btn btn" to="/members">Виж всички</Link>
+                        <NavLink className="custom-btn btn" to="/members">Виж всички</NavLink>
                     </div>
                 </div>
             </div>

@@ -3,13 +3,13 @@
 import './top-navigation.scss'
 
 import logo from 'images/logo.png';
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 export const TopNavigation = () => {
     return (
         <nav className="navbar navbar-expand-lg bg-light shadow-lg sticky-top">
             <div className="container">
-                <Link className="navbar-brand" to="/">
+                <NavLink className="navbar-brand" to="/">
                     <img src={logo} className="logo img-fluid" alt="Обединение Честни Избори (О.Ч.И)" />
                     <span className="d-inline-block d-md-none">
                         <span>О.Ч.И</span>
@@ -19,7 +19,7 @@ export const TopNavigation = () => {
                         Обединение Честни Избори (О.Ч.И)
                         <small>Платформа за борба срещу изборните измами, <br />купуването на гласове и контролирания вот</small>
                     </span>
-                </Link>
+                </NavLink>
 
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -30,11 +30,15 @@ export const TopNavigation = () => {
                     <ul className="navbar-nav ms-auto">
 
                         <li className="nav-item">
-                            <NavLink className="nav-link click-scroll" to="/about-us">За Нас</NavLink>
+                            <NavLink className="nav-link" to="/about-us">За Нас</NavLink>
                         </li>
 
                         <li className="nav-item">
-                            <NavLink className="nav-link click-scroll" to="/members">Членове</NavLink>
+                            <NavLink className="nav-link" to="/members">Членове</NavLink>
+                        </li>
+
+                        <li className="nav-item">
+                            <NavLink className="nav-link" to="/frauds">Измами</NavLink>
                         </li>
 
                         <li className="nav-item">

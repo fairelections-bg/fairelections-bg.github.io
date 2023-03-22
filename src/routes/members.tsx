@@ -1,4 +1,4 @@
-import { MemberItem } from './member-item';
+import { MembersItem } from './members-item';
 
 import dataForGoodLogo from 'images/logos/data-for-good-bg.png';
 import obshtestvoLogo from 'images/logos/obshtestvo-bg.png';
@@ -25,84 +25,84 @@ export const Members = () => {
                         <h2>Членове на О.Ч.И</h2>
                     </div>
 
-                    <MemberItem
+                    <MembersItem
                         name="Данни за добро"
                         url="https://data-for-good.bg/"
                         logo={dataForGoodLogo}
                         description="Подкрепя гражданския сектор, като предоставя знания и услуги свързани с обработка и анализ на данни."
                     />
 
-                    <MemberItem
+                    <MembersItem
                         name="Общество"
                         url="https://www.obshtestvo.bg/"
                         logo={obshtestvoLogo}
                         description="Независими създатели на електронни инструменти за бърза и удобна връзка държава–гражданин."
                     />
 
-                    <MemberItem
+                    <MembersItem
                         name="Антикорупционен фонд"
                         url="https://acf.bg/bg/"
                         logo={anticorruptionFundLogo}
                         description="Работи за възпрепятстване, изобличаване и разследване на корупцията на всички нива в страната."
                     />
 
-                    <MemberItem
+                    <MembersItem
                         name="ФОРС"
                         url="https://www.forcebg.com/"
                         logo={forceLogo}
                         description="Фондация за Общностно Развитие и Сътрудничество. Мост за сътрудничество между властта и местната ромска общност."
                     />
 
-                    <MemberItem
+                    <MembersItem
                         name="Евроком"
                         url="https://eurocom.bg/"
                         logo={eurocomLogo}
                         description="Новинарски емисии, политически, здравни, спортни и развлекателни предавания с различна тематична насоченост."
                     />
 
-                    <MemberItem
+                    <MembersItem
                         name="Дневник"
                         url="https://www.dnevnik.bg/"
                         logo={dnevnikLogo}
                         description="&quot;Дневник&quot; е онлайн медиата на активните хора с позиция, с новините от България и света, качествени анализи, истории и забавление."
                     />
 
-                    <MemberItem
+                    <MembersItem
                         name="АЕЖ-България"
                         url="https://aej-bulgaria.org/"
                         logo={aejLogo}
                         description="Професионална общност от журналисти, част от Асоциацията на европейските журналисти, независим наблюдател на Съвета на Европа."
                     />
 
-                    <MemberItem
+                    <MembersItem
                         name="Blagoevgrad-News"
                         url="https://blagoevgrad-news.com/"
                         logo={blagoevgradNewsLogo}
                         description="Свободно развиващ се информационно-аналитичен сайт, който зависи само от главния си редактор Мариета Димитрова."
                     />
 
-                    <MemberItem
+                    <MembersItem
                         name="Zov News"
                         url="https://zovnews.com/"
                         logo={zovnewsLogo}
                         description="Четете последните новини от Враца и региона. ZovNews - всички новини за Враца. Политика, бизнес, разследвания и любопитни теми."
                     />
 
-                    <MemberItem
+                    <MembersItem
                         name="Mediapool"
                         url="https://www.mediapool.bg/"
                         logo={mediapoolLogo}
                         description="Най-важните събития от деня и тяхното обяснение. Качествени анализи и коментари, обективна и навременна информация."
                     />
 
-                    <MemberItem
+                    <MembersItem
                         name="БлуЛинк"
                         url="https://www.bluelink.net/"
                         logo={bluelinkLogo}
                         description="Мрежа за гражданско действие. Подкрепа за демокрацията, ценностите на обединена Европа и гражданското общество."
                     />
 
-                    <MemberItem
+                    <MembersItem
                         name="ПОД ТЕПЕТО"
                         url="https://podtepeto.com/"
                         logo={podTepetoLogo}
@@ -111,7 +111,7 @@ export const Members = () => {
 
                     <div className="col-lg-4 col-md-3 d-none d-md-block"></div>
 
-                    <MemberItem
+                    <MembersItem
                         name="За истината"
                         url="https://zaistinata.com/"
                         logo={zaIstinataLogo}
