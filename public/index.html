@@ -8,10 +8,15 @@
 
   <meta name="theme-color" content="#253777" />
 
-  <meta name="description"
-    content="Платформа за борба срещу изборните измами, <br>купуването на гласове и контролирания вот" />
   <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+  
   <title>Обединение Честни Избори (О.Ч.И)</title>
+  
+  <meta name="description" content="Платформа за борба срещу изборните измами, <br>купуването на гласове и контролирания вот" />
+  
+  <meta property="og:title" content="Обединение Честни Избори (О.Ч.И)" />
+  <meta property="og:description" content="Платформа за борба срещу изборните измами, <br>купуването на гласове и контролирания вот" />
+  <meta property="og:image" content="%PUBLIC_URL%/logo.png" />
 
   <!-- Start Single Page Apps for GitHub Pages -->
   <script type="text/javascript">
@@ -27,23 +32,25 @@
     }(window.location))
   </script>
   <!-- End Single Page Apps for GitHub Pages -->
-  
+
   <!-- Meta Pixel Code -->
-<script>
-  !function(f,b,e,v,n,t,s)
-  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-  n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}(window, document,'script',
-  'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '1414974092409130');
-  fbq('track', 'PageView');
+  <script>
+    !function (f, b, e, v, n, t, s) {
+      if (f.fbq) return; n = f.fbq = function () {
+        n.callMethod ?
+        n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+      };
+      if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+      n.queue = []; t = b.createElement(e); t.async = !0;
+      t.src = v; s = b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t, s)
+    }(window, document, 'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1414974092409130');
+    fbq('track', 'PageView');
   </script>
   <noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=1414974092409130&ev=PageView&noscript=1"
-  /></noscript>
+      src="https://www.facebook.com/tr?id=1414974092409130&ev=PageView&noscript=1" /></noscript>
   <!-- End Meta Pixel Code -->
 </head>
 
