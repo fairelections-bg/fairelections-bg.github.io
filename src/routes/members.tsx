@@ -1,6 +1,6 @@
 import { MembersItem } from './members-item';
 
-import dataForGoodLogo from 'images/logos/data-for-good-bg.png';
+import dataForGoodLogo from 'images/logos/data-for-good-bg.jpg';
 import obshtestvoLogo from 'images/logos/obshtestvo-bg.png';
 import anticorruptionFundLogo from 'images/logos/anticorruption-fund.png';
 import forceLogo from 'images/logos/force.svg';

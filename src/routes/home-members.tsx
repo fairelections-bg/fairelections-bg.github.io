@@ -1,7 +1,7 @@
 import { MembersItem } from './members-item';
 import { NavLink } from 'react-router-dom';
 
-import dataForGoodLogo from 'images/logos/data-for-good-bg.png';
+import dataForGoodLogo from 'images/logos/data-for-good-bg.jpg';
 import obshtestvoLogo from 'images/logos/obshtestvo-bg.png';
 import anticorruptionFundLogo from 'images/logos/anticorruption-fund.png';
 

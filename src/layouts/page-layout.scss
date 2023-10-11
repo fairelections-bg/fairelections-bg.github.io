@@ -1,0 +1,25 @@
+section {
+  * {
+    color: var(--p-color);
+  }
+
+  h2,
+  h3,
+  h4 {
+    text-align: center;
+    padding: 3rem;
+  }
+
+  ol {
+    counter-reset: item;
+
+    li {
+      display: block
+    }
+
+    li:before {
+      content: counters(item, ".") ". ";
+      counter-increment: item
+    }
+  }
+}

@@ -5,6 +5,7 @@ import { AboutUs } from "routes/about-us";
 import { Members } from "routes/members";
 import { Frauds } from "routes/frauds";
 import { SubmitSignal } from 'routes/submit-signal';
+import { Reports } from "routes/reports";
 import { Volunteer } from 'routes/volunteer';
 import { NotFound } from 'routes/not-found';
 import { PageLayout } from "layouts/page-layout";
@@ -20,6 +21,7 @@ export const App = () => {
           <Route path="/frauds" element={<Frauds />} />
           <Route path="/volunteer" element={<Volunteer />} />
           <Route path="/submit-signal" element={<SubmitSignal />} />
+          <Route path="/reports" element={<Reports />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>

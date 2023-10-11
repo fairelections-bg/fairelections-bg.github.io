@@ -1,3 +1,5 @@
+import './page-layout.scss';
+
 import ScrollToTop from "components/scroll-top-top";
 import { Footer } from "components/footer";
 import { Header } from "components/header";
