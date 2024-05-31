@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: 'Build'
         shell: bash
@@ -28,12 +28,12 @@ jobs:
           npm run build
           echo "::endgroup::"
       - name: 'upload'
-        uses: actions/upload-pages-artifact@v1.0.4
+        uses: actions/upload-pages-artifact@v3
         with: 
           path: build
 
       - id: deploy
         name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v1
+        uses: actions/deploy-pages@v4
         with:
           token: ${{ github.token }}
