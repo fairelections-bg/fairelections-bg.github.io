@@ -1,3 +1,5 @@
+/* eslint-disable react/jsx-no-target-blank */
+
 import mapImage from 'images/analysis/AnalysisMap.jpg';
 
 export const Analysis = () => {
@@ -17,7 +19,7 @@ export const Analysis = () => {
                             <li>Подобно отклонение може да е признак за контролиран или купен вот или друг тип изборни измами или грешки, които да влияят на резултата.</li>
                             <li>ОЧИ проследи и необичайно натруправане на преференции за кандидатите за общински съвет.</li>
                         </ul>
-                        
+
                         <img src={mapImage} className="img-fluid" alt="Карта" />
 
                         <h3>Връзки:</h3>
