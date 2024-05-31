@@ -9,6 +9,7 @@ import { Reports } from "routes/reports";
 import { Volunteer } from 'routes/volunteer';
 import { NotFound } from 'routes/not-found';
 import { PageLayout } from "layouts/page-layout";
+import { Analysis } from "routes/analysis";
 
 export const App = () => {
   return (
@@ -22,6 +23,7 @@ export const App = () => {
           <Route path="/volunteer" element={<Volunteer />} />
           <Route path="/submit-signal" element={<SubmitSignal />} />
           <Route path="/reports" element={<Reports />} />
+          <Route path="/analysis" element={<Analysis />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>

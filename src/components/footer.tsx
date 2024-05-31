@@ -30,15 +30,19 @@ export const Footer = () => {
                             </li>
 
                             <li className="footer-menu-item">
-                                <NavLink to="/volunteer" className="footer-menu-link">Запиши се</NavLink>
+                                <NavLink className="footer-menu-link" to="/volunteer">Запиши се</NavLink>
                             </li>
 
-                            <li className="nav-item">
-                                <NavLink className="nav-link" to="/reports">Отчети</NavLink>
+                            <li className="footer-menu-item">
+                                <NavLink className="footer-menu-link" to="/reports">Отчети</NavLink>
                             </li>
 
                             <li className="footer-menu-item">
                                 <NavLink to="/submit-signal" className="footer-menu-link">Подай сигнал</NavLink>
+                            </li>
+
+                            <li className="footer-menu-item">
+                                <NavLink className="footer-menu-link" to="/analysis">Анализи</NavLink>
                             </li>
                         </ul>
                     </div>

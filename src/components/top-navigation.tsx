@@ -49,6 +49,10 @@ export const TopNavigation = () => {
                             <NavLink className="nav-link" to="/reports">Отчети</NavLink>
                         </li>
 
+                        <li className="nav-item">
+                            <NavLink className="nav-link" to="/analysis">Анализи</NavLink>
+                        </li>
+
                         <li className="nav-item ms-3">
                             <NavLink className="nav-link custom-btn custom-border-btn btn" to="/volunteer">Запиши се</NavLink>
                         </li>
