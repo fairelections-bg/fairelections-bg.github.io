@@ -13,6 +13,7 @@ import mediapoolLogo from 'images/logos/mediapool.png';
 import bluelinkLogo from 'images/logos/logo-bluelink.png';
 import podTepetoLogo from 'images/logos/pod-tepeto.gif';
 import zaIstinataLogo from 'images/logos/za-istinata.png';
+import darikradioLogo from 'images/logos/darikradio.svg';
 
 export const Members = () => {
     
@@ -109,7 +110,12 @@ export const Members = () => {
                         description="Акцентираме силно на социалните каузи и инициативите, целящи да укрепят нашето гражданско общество и изконните демократични ценности."
                     />
 
-                    <div className="col-lg-4 col-md-3 d-none d-md-block"></div>
+                    <MembersItem
+                        name="Дарик радио"
+                        url="https://darikradio.bg/"
+                        logo={darikradioLogo}
+                        description="Запазена марка за точната, обективната и изпреварващата информация, присъстваща не само в новините, но в най-добрите спортни, политически, икономически предавания."
+                    />
 
                     <MembersItem
                         name="За истината"
