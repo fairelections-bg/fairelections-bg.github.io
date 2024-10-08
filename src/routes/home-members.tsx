@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 import dataForGoodLogo from 'images/logos/data-for-good-bg.jpg';
 import obshtestvoLogo from 'images/logos/obshtestvo-bg.png';
-import anticorruptionFundLogo from 'images/logos/anticorruption-fund.png';
+import aejLogo from 'images/logos/aej.png';
 
 export const HomeMembers = () => {
     return (
@@ -30,10 +30,10 @@ export const HomeMembers = () => {
                     />
 
                     <MembersItem
-                        name="Антикорупционен фонд"
-                        url="https://acf.bg/bg/"
-                        logo={anticorruptionFundLogo}
-                        description="Работи за възпрепятстване, изобличаване и разследване на корупцията на всички нива в страната."
+                        name="АЕЖ-България"
+                        url="https://aej-bulgaria.org/"
+                        logo={aejLogo}
+                        description="Професионална общност от журналисти, част от Асоциацията на европейските журналисти, независим наблюдател на Съвета на Европа."
                     />
 
                     <div className="text-center">

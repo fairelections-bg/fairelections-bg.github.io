@@ -2,7 +2,6 @@ import { MembersItem } from './members-item';
 
 import dataForGoodLogo from 'images/logos/data-for-good-bg.jpg';
 import obshtestvoLogo from 'images/logos/obshtestvo-bg.png';
-import anticorruptionFundLogo from 'images/logos/anticorruption-fund.png';
 import forceLogo from 'images/logos/force.svg';
 import eurocomLogo from 'images/logos/eurocom-bg.jpg';
 import dnevnikLogo from 'images/logos/dnevnik.png';
@@ -41,10 +40,10 @@ export const Members = () => {
                     />
 
                     <MembersItem
-                        name="Антикорупционен фонд"
-                        url="https://acf.bg/bg/"
-                        logo={anticorruptionFundLogo}
-                        description="Работи за възпрепятстване, изобличаване и разследване на корупцията на всички нива в страната."
+                        name="АЕЖ-България"
+                        url="https://aej-bulgaria.org/"
+                        logo={aejLogo}
+                        description="Професионална общност от журналисти, част от Асоциацията на европейските журналисти, независим наблюдател на Съвета на Европа."
                     />
 
                     <MembersItem
@@ -66,13 +65,6 @@ export const Members = () => {
                         url="https://www.dnevnik.bg/"
                         logo={dnevnikLogo}
                         description="&quot;Дневник&quot; е онлайн медиата на активните хора с позиция, с новините от България и света, качествени анализи, истории и забавление."
-                    />
-
-                    <MembersItem
-                        name="АЕЖ-България"
-                        url="https://aej-bulgaria.org/"
-                        logo={aejLogo}
-                        description="Професионална общност от журналисти, част от Асоциацията на европейските журналисти, независим наблюдател на Съвета на Европа."
                     />
 
                     <MembersItem
@@ -116,6 +108,8 @@ export const Members = () => {
                         logo={darikradioLogo}
                         description="Запазена марка за точната, обективната и изпреварващата информация, присъстваща не само в новините, но в най-добрите спортни, политически, икономически предавания."
                     />
+
+                    <div className="col-lg-4 col-md-3 d-none d-md-block"></div>
 
                     <MembersItem
                         name="За истината"
