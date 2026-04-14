@@ -1,5 +1,5 @@
 import volunteerImage from 'images/icons/volunteer.png';
-import submitSignalImage from 'images/icons/submit-signal.png';
+// import submitSignalImage from 'images/icons/submit-signal.png';
 import { NavLink } from "react-router-dom";
 
 export const HomeWelcome = () => {
