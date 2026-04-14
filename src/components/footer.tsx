@@ -37,9 +37,9 @@ export const Footer = () => {
                                 <NavLink className="footer-menu-link" to="/reports">Отчети</NavLink>
                             </li>
 
-                            <li className="footer-menu-item">
+                            {/* <li className="footer-menu-item">
                                 <NavLink to="/submit-signal" className="footer-menu-link">Подай сигнал</NavLink>
-                            </li>
+                            </li> */}
 
                             <li className="footer-menu-item">
                                 <NavLink className="footer-menu-link" to="/analysis">Анализи</NavLink>

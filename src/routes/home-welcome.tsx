@@ -23,14 +23,14 @@ export const HomeWelcome = () => {
                         </div>
                     </div>
 
-                    <div className="col-lg-3 col-md-6 col-12 mb-4 mb-lg-0 mb-md-4">
+                    {/* <div className="col-lg-3 col-md-6 col-12 mb-4 mb-lg-0 mb-md-4">
                         <div className="featured-block d-flex justify-content-center align-items-center">
                             <NavLink to="/submit-signal" className="d-block">
                                 <img src={submitSignalImage} className="featured-block-image img-fluid" alt="сигнал" />
                                 <p className="featured-block-text">Подай <strong>сигнал</strong></p>
                             </NavLink>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </section>

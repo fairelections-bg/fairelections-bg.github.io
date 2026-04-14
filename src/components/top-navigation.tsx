@@ -41,9 +41,9 @@ export const TopNavigation = () => {
                             <NavLink className="nav-link" to="/frauds">Измами</NavLink>
                         </li>
 
-                        <li className="nav-item">
+                        {/* <li className="nav-item">
                             <NavLink className="nav-link" to="/submit-signal">Подай сигнал</NavLink>
-                        </li>
+                        </li> */}
 
                         <li className="nav-item">
                             <NavLink className="nav-link" to="/reports">Отчети</NavLink>
