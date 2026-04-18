@@ -265,51 +265,6 @@ footer {
     </div>
    </div>
   </div>
-  <div class="scrim" id="scrim" onclick="toggleDrawer(false)">
-  </div>
-  <aside class="drawer" id="drawer">
-   <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
-    <strong>
-     Документи
-    </strong>
-    <button class="iconbtn" onclick="toggleDrawer(false)">
-     ✕
-    </button>
-   </div>
-   <nav>
-    <a class="" href="osnovni-instrukcii.html">
-     Основни инструкции
-    </a>
-    <a class="" href="checklist.html">
-     Checklist
-    </a>
-    <a class="active" href="video-checklist.html">
-     Видеонаблюдение: checklist
-    </a>
-    <a class="" href="narusheniya.html">
-     Нарушения
-    </a>
-    <a class="" href="faq.html">
-     Често задавани въпроси
-    </a>
-    <a class="" href="rezume.html">
-     Резюме на указанията на СИК
-    </a>
-   </nav>
-   <div style="margin-top:18px;padding-top:14px;border-top:1px solid var(--line);">
-    <div class="card-label">
-     Скок в документа
-    </div>
-    <div class="jump-links">
-     <a href="#1-kakvo-tryabva-da-e-vidimo-i-chuto">
-      1. Какво следим за камера и звук
-     </a>
-     <a href="#2-kakvo-sledim-pri-broeneto">
-      2. Какви нарушения следим при броенето
-     </a>
-    </div>
-   </div>
-  </aside>
   <main>
    <section class="hero">
     <h1>
@@ -522,20 +477,5 @@ footer {
   </main>
   <footer>
   </footer>
-  <script>
-   function toggleDrawer(force) {
-        const d = document.getElementById('drawer');
-        const s = document.getElementById('scrim');
-        const open = force !== undefined ? force : !d.classList.contains('open');
-        d.classList.toggle('open', open);
-        s.classList.toggle('show', open);
-      }
-
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') {
-          toggleDrawer(false);
-        }
-      });
-  </script>
  </body>
 </html>
