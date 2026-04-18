@@ -1,4 +1,4 @@
-export const Materials() = () => {
+export const Materials = () => {
   return (
     <iframe
       src="/osnovni-instrukcii.html"
