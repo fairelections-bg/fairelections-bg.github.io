@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="bg">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   Video checklist — ОЧИ
+  </title>
+  <style>
+   :root {
+  --bg: #0a0f1f;
+  --bg2: #11182b;
+  --panel: #171f35;
+  --panel2: #1d2744;
+  --card: #223053;
+  --cardSoft: #2b3f6d;
+  --line: #354a7b;
+  --text: #eef3ff;
+  --muted: #c6d2f1;
+  --brand: #7ea7ff;
+  --accent: #4f7bff;
+  --highlight: #ffd54d;
+  --shadow: 0 12px 36px rgba(0,0,0,.28);
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: Inter, Arial, sans-serif;
+  background: linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
+  color: var(--text);
+}
+a { color: var(--brand); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background: rgba(10,15,31,.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+.iconbtn {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: var(--panel);
+  color: var(--text);
+  box-shadow: var(--shadow);
+  font-size: 1.2rem;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+.brand img { height: 38px; width: auto; }
+.brandtxt .site { font-weight: 800; color: var(--text); }
+.brandtxt .page {
+  font-size: .92rem;
+  color: var(--muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.drawer {
+  position: fixed;
+  inset: 0 auto 0 0;
+  width: min(86vw, 340px);
+  background: var(--panel);
+  transform: translateX(-110%);
+  transition: .22s ease;
+  z-index: 1100;
+  box-shadow: var(--shadow);
+  overflow: auto;
+  padding: 18px;
+}
+.drawer.open { transform: translateX(0); }
+.scrim {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.45);
+  opacity: 0;
+  pointer-events: none;
+  transition: .22s;
+  z-index: 1090;
+}
+.scrim.show { opacity: 1; pointer-events: auto; }
+.drawer nav a {
+  display: block;
+  padding: 12px 14px;
+  margin: 6px 0;
+  border-radius: 14px;
+  color: var(--text);
+}
+.drawer nav a.active,
+.drawer nav a:hover {
+  background: var(--cardSoft);
+  text-decoration: none;
+}
+.jump-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+.jump-links a {
+  display: inline-flex;
+  padding: 8px 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--panel2);
+  color: var(--text);
+  font-size: .92rem;
+}
+main {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 18px 14px 40px;
+}
+.hero {
+  background: linear-gradient(180deg, var(--panel) 0%, var(--panel2) 100%);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  box-shadow: var(--shadow);
+  padding: 22px 18px;
+  margin-bottom: 16px;
+}
+.hero h1 {
+  margin: 0 0 8px;
+  color: var(--text);
+  font-size: 1.6rem;
+}
+.hero p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.6;
+}
+.info-card {
+  background: linear-gradient(180deg, var(--card) 0%, var(--cardSoft) 100%);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+  padding: 16px 18px;
+  margin: 12px 0;
+}
+.info-card.alt {
+  background: linear-gradient(180deg, #31497f 0%, #395792 100%);
+}
+.card-label {
+  font-size: .82rem;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: var(--brand);
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+.card-body {
+  color: var(--text);
+  line-height: 1.62;
+}
+details.section {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  margin: 14px 0;
+}
+details.section > summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  color: var(--text);
+  font-weight: 800;
+}
+details.section > summary::-webkit-details-marker { display: none; }
+.section-body { padding: 0 18px 18px; }
+.section-intro {
+  margin: 0 0 12px;
+  color: var(--muted);
+}
+.bullet-list {
+  margin: 0;
+  padding-left: 20px;
+}
+.bullet-list li {
+  line-height: 1.62;
+  margin: .34rem 0;
+}
+.bullet-list.checklist {
+  list-style: none;
+  padding-left: 0;
+}
+.bullet-list.checklist li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: .45rem 0;
+}
+.bullet-list.checklist input[type=checkbox] {
+  margin-top: .22rem;
+  width: 18px;
+  height: 18px;
+  accent-color: var(--accent);
+}
+.inline-link,
+.highlight-link {
+  color: var(--highlight);
+  font-weight: 700;
+}
+.table-wrap {
+  overflow-x: auto;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  background: var(--panel2);
+  border: 1px solid var(--line);
+}
+th, td {
+  border: 1px solid var(--line);
+  padding: 10px 12px;
+  text-align: left;
+  vertical-align: top;
+  color: var(--text);
+}
+th {
+  background: #253763;
+  color: var(--highlight);
+}
+footer {
+  padding: 24px 18px 36px;
+  text-align: center;
+  color: var(--muted);
+  font-size: .92rem;
+}
+  </style>
+ </head>
+ <body>
+  <div class="topbar">
+   <button aria-label="Меню" class="iconbtn" onclick="toggleDrawer()">
+    ☰
+   </button>
+   <div class="brand">
+    <img alt="ОЧИ" src="Vertical+slogan-400h.png"/>
+    <div class="brandtxt">
+     <div class="site">
+      ОЧИ — ресурси за наблюдатели
+     </div>
+     <div class="page">
+      Video checklist
+     </div>
+    </div>
+   </div>
+  </div>
+  <div class="scrim" id="scrim" onclick="toggleDrawer(false)">
+  </div>
+  <aside class="drawer" id="drawer">
+   <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+    <strong>
+     Документи
+    </strong>
+    <button class="iconbtn" onclick="toggleDrawer(false)">
+     ✕
+    </button>
+   </div>
+   <nav>
+    <a class="" href="osnovni-instrukcii.html">
+     Основни инструкции
+    </a>
+    <a class="" href="checklist.html">
+     Checklist
+    </a>
+    <a class="active" href="video-checklist.html">
+     Video checklist
+    </a>
+    <a class="" href="narusheniya.html">
+     Нарушения
+    </a>
+    <a class="" href="faq.html">
+     Често задавани въпроси
+    </a>
+    <a class="" href="rezume.html">
+     Резюме на указанията на СИК
+    </a>
+   </nav>
+   <div style="margin-top:18px;padding-top:14px;border-top:1px solid var(--line);">
+    <div class="card-label">
+     Скок в документа
+    </div>
+    <div class="jump-links">
+     <a href="#1-kakvo-tryabva-da-e-vidimo-i-chuto">
+      1. Какво трябва да е видимо и чуто
+     </a>
+     <a href="#2-kakvo-sledim-pri-broeneto">
+      2. Какво следим при броенето
+     </a>
+     <a href="#3-kakvo-sledim-za-narusheniya">
+      3. Какво следим за нарушения
+     </a>
+    </div>
+   </div>
+  </aside>
+  <main>
+   <section class="hero">
+    <h1>
+     Video checklist
+    </h1>
+    <p>
+     Отделен checklist за преглед само на видеонаблюдението.
+    </p>
+    <div class="jump-links">
+     <a href="#1-kakvo-tryabva-da-e-vidimo-i-chuto">
+      1. Какво трябва да е видимо и чуто
+     </a>
+     <a href="#2-kakvo-sledim-pri-broeneto">
+      2. Какво следим при броенето
+     </a>
+     <a href="#3-kakvo-sledim-za-narusheniya">
+      3. Какво следим за нарушения
+     </a>
+    </div>
+   </section>
+   <section class="info-card alt">
+    <div class="card-body">
+     Този файл събира на едно място всички проверки за броенето и протокола, които могат да се наблюдават дистанционно, плюс допълнителните проверки за видео и аудио поток.
+    </div>
+   </section>
+   <details class="section" id="1-kakvo-tryabva-da-e-vidimo-i-chuto" open="">
+    <summary>
+     <span>
+      1. Какво трябва да е видимо и чуто
+     </span>
+     <span>
+      ▾
+     </span>
+    </summary>
+    <div class="section-body">
+     <p class="section-intro">
+      Този checklist е за случаи, в които наблюдателят не е физически в секцията, а прави преглед само на видеонаблюдението.
+     </p>
+     <ul class="bullet-list checklist">
+      <li>
+       <input type="checkbox"/>
+       <span>
+        Има едновременно видео и аудио поток за релевантния период.
+       </span>
+      </li>
+      <li>
+       <input type="checkbox"/>
+       <span>
+        Виждат се ясно масата за броене и действията на СИК.
+       </span>
+      </li>
+      <li>
+       <input type="checkbox"/>
+       <span>
+        Видеопотокът показва мястото за броене, а не само общ план на помещението.
+       </span>
+      </li>
+      <li>
+       <input type="checkbox"/>
+       <span>
+        Аудиопотокът е включен, така че обявяването на гласовете и решенията на СИК да се чува.
+       </span>
+      </li>
+      <li>
+       <input type="checkbox"/>
+       <span>
+        Показват ли се бюлетините към камерата една по една.
+       </span>
+      </li>
+      <li>
+       <input type="checkbox"/>
+       <span>
+        Чува ли се ясно обявяването на гласовете, включително „Не подкрепям никого“ и причините за недействителност.
+       </span>
+      </li>
+      <li>
+       <input type="checkbox"/>
+       <span>
+        Вижда ли се отделянето на купчинки по партии или коалиции и отделните купчинки за недействителни бюлетини и „Не подкрепям никого“.
+       </span>
+      </li>
+      <li>
+       <input type="checkbox"/>
+       <span>
+        Ако видеоизлъчването прекъсне, отбелязва се точният момент и се следи дали СИК го подновява.
+       </span>
+      </li>
+     </ul>
+    </div>
+   </details>
+   <details class="section" id="2-kakvo-sledim-pri-broeneto" open="">
+    <summary>
+     <span>
+      2. Какво следим при броенето
+     </span>
+     <span>
+      ▾
+     </span>
+    </summary>
+    <div class="section-body">
+     <ul class="bullet-list checklist">
+      <li>
+       <input type="checkbox"/>
+       <span>
+        На масата няма излишни пишещи средства до бюлетините.
+       </span>
+      </li>
+      <li>
+       <input type="checkbox"/>
+       <span>
+        Преди отварянето на кутиите са отстранени излишните книжа и материали и на масата остават само необходимите документи и бланки-чернови.
+       </span>
+      </li>
+      <li>
+       <input type="checkbox"/>
+       <span>
+        Осигурена е добра видимост към бюлетините и действията на СИК.
+       </span>
+      </li>
+      <li>
+       <input type="checkbox"/>
+       <span>
+        Първо се попълва черновата, а след това данните се пренасят в протокола.
+       </span>
+      </li>
+      <li>
+       <input type="checkbox"/>
+       <span>
+        Първо се броят хартиените бюлетини, а след това бюлетините от машинно гласуване.
+       </span>
+      </li>
+      <li>
+       <input type="checkbox"/>
+       <span>
+        Хартиените бюлетини се показват една по една, вотът се вижда на камерата и се обявява ясно.
+       </span>
+      </li>
+      <li>
+       <input type="checkbox"/>
+       <span>
+        При недействителни бюлетини причината се обявява.
+       </span>
+      </li>
+      <li>
+       <input type="checkbox"/>
+       <span>
+        Преференциите се четат и отразяват по указанията.
+       </span>
+      </li>
+      <li>
+       <input type="checkbox"/>
+       <span>
+        При машинните бюлетини не се записват недействителни гласове.
+       </span>
+      </li>
+      <li>
+       <input type="checkbox"/>
+       <span>
+        Не се смесват хартиени и машинни бюлетини.
+       </span>
+      </li>
+      <li>
+       <input type="checkbox"/>
+       <span>
+        При спор за действителност или недействителност СИК взема писмено решение.
+       </span>
+      </li>
+      <li>
+       <input type="checkbox"/>
+       <span>
+        След подписването председателят обявява резултатите.
+       </span>
+      </li>
+      <li>
+       <input type="checkbox"/>
+       <span>
+        Копието от протокола, ако се показва или предава, следва да е с три подписа и печат на всяка страница.
+       </span>
+      </li>
+     </ul>
+    </div>
+   </details>
+   <details class="section" id="3-kakvo-sledim-za-narusheniya"  open="">
+    <summary>
+     <span>
+      3. Какво следим за нарушения
+     </span>
+     <span>
+      ▾
+     </span>
+    </summary>
+    <div class="section-body">
+     <ul class="bullet-list checklist">
+      <li>
+       <input type="checkbox"/>
+       <span>
+        Вижда ли се преброяването на преференциите и работата по бланките-чернови.
+       </span>
+      </li>
+      <li>
+       <input type="checkbox"/>
+       <span>
+        Вижда ли се обработката на бюлетините от машинно гласуване отделно от хартиените.
+       </span>
+      </li>
+      <li>
+       <input type="checkbox"/>
+       <span>
+        Има ли периоди без картина, без звук или с прекъсване в критичен момент.
+       </span>
+      </li>
+      <li>
+       <input type="checkbox"/>
+       <span>
+        Има ли моменти, в които бюлетини се държат извън полезрението на камерата.
+       </span>
+      </li>
+      <li>
+       <input type="checkbox"/>
+       <span>
+        Има ли пишещи средства в непосредствена близост до бюлетините по време на самото броене.
+       </span>
+      </li>
+      <li>
+       <input type="checkbox"/>
+       <span>
+        Вижда ли се попълването на черновата и пренасянето в протокола в логичен ред.
+       </span>
+      </li>
+      <li>
+       <input type="checkbox"/>
+       <span>
+        Чуват ли се нерегламентирани договорки между членове на СИК.
+       </span>
+      </li>
+      <li>
+       <input type="checkbox"/>
+       <span>
+        Има ли случаи на дописване и инвалидиране на бюлетини.
+       </span>
+      </li>
+      <li>
+       <input type="checkbox"/>
+       <span>
+        Има ли липсващи подписи по протокола или устни решения без протокол.
+       </span>
+      </li>
+      <li>
+       <input type="checkbox"/>
+       <span>
+        Не попадат ли бюлетини в грешни купчинки и обявяват ли се еднакви критерии за действителност и недействителност.
+       </span>
+      </li>
+     </ul>
+    </div>
+   </details>
+  </main>
+  <footer>
+  </footer>
+  <script>
+   function toggleDrawer(force) {
+        const d = document.getElementById('drawer');
+        const s = document.getElementById('scrim');
+        const open = force !== undefined ? force : !d.classList.contains('open');
+        d.classList.toggle('open', open);
+        s.classList.toggle('show', open);
+      }
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          toggleDrawer(false);
+        }
+      });
+  </script>
+ </body>
+</html>

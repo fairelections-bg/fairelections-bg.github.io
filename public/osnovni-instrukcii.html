@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="bg">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   Основни инструкции — ОЧИ
+  </title>
+  <style>
+   :root{--bg:#0a0f1f;--bg2:#11182b;--panel:#171f35;--panel2:#1d2744;--card:#223053;--cardSoft:#2b3f6d;--line:#354a7b;--text:#eef3ff;--muted:#c6d2f1;--brand:#7ea7ff;--accent:#4f7bff;--shadow:0 12px 36px rgba(0,0,0,.28)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,Arial,sans-serif;background:linear-gradient(180deg,var(--bg) 0%,var(--bg2) 100%);color:var(--text)}
+a{color:var(--brand);text-decoration:none}a:hover{text-decoration:underline}
+.topbar{position:sticky;top:0;z-index:1000;display:flex;align-items:center;gap:12px;padding:12px 16px;background:rgba(10,15,31,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.iconbtn{width:42px;height:42px;border-radius:12px;border:1px solid var(--line);background:var(--panel);color:var(--text);box-shadow:var(--shadow);font-size:1.2rem}
+.brand{display:flex;align-items:center;gap:12px;min-width:0}.brand img{height:38px;width:auto}.brandtxt .site{font-weight:800;color:var(--text)}.brandtxt .page{font-size:.92rem;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.drawer{position:fixed;inset:0 auto 0 0;width:min(86vw,340px);background:var(--panel);transform:translateX(-110%);transition:.22s ease;z-index:1100;box-shadow:var(--shadow);overflow:auto;padding:18px}.drawer.open{transform:translateX(0)}
+.scrim{position:fixed;inset:0;background:rgba(0,0,0,.45);opacity:0;pointer-events:none;transition:.22s;z-index:1090}.scrim.show{opacity:1;pointer-events:auto}
+.drawer nav a{display:block;padding:12px 14px;margin:6px 0;border-radius:14px;color:var(--text)}.drawer nav a.active,.drawer nav a:hover{background:var(--cardSoft);text-decoration:none}
+.jump-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}.jump-links a{display:inline-flex;padding:8px 12px;border:1px solid var(--line);border-radius:999px;background:var(--panel2);color:var(--text);font-size:.92rem}
+main{max-width:980px;margin:0 auto;padding:18px 14px 40px}.hero{background:linear-gradient(180deg,var(--panel) 0%,var(--panel2) 100%);border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);padding:22px 18px;margin-bottom:16px}.hero h1{margin:0 0 8px;color:var(--text);font-size:1.6rem}.hero p{margin:0;color:var(--muted);line-height:1.6}
+.info-card{background:linear-gradient(180deg,var(--card) 0%,var(--cardSoft) 100%);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);padding:16px 18px;margin:12px 0}.info-card.alt{background:linear-gradient(180deg,#31497f 0%,#395792 100%)}.card-label{font-size:.82rem;text-transform:uppercase;letter-spacing:.06em;color:var(--brand);margin-bottom:8px;font-weight:700}.card-body{color:var(--text);line-height:1.62}
+details.section{background:var(--panel);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow);overflow:hidden;margin:14px 0}details.section>summary{list-style:none;cursor:pointer;padding:18px;display:flex;align-items:center;justify-content:space-between;gap:12px;color:var(--text);font-weight:800}details.section>summary::-webkit-details-marker{display:none}.section-body{padding:0 18px 18px}
+details.faq-item{background:var(--panel2);border:1px solid var(--line);border-radius:16px;margin:10px 0;overflow:hidden}details.faq-item>summary{list-style:none;cursor:pointer;padding:14px 16px;font-weight:700;color:var(--text)}details.faq-item>summary::-webkit-details-marker{display:none}.faq-body{padding:0 16px 16px;color:var(--muted)}
+p{line-height:1.64;color:var(--muted)}.bullet-list{margin:0;padding-left:20px}.bullet-list li{line-height:1.62;margin:.34rem 0}
+.bullet-list.checklist{list-style:none;padding-left:0}.bullet-list.checklist li{display:flex;align-items:flex-start;gap:12px;padding:.45rem 0}.bullet-list.checklist input[type=checkbox]{margin-top:.22rem;width:18px;height:18px;accent-color:var(--accent)}
+.data-grid{display:grid;gap:12px;margin-top:12px}.data-grid.two-up{grid-template-columns:1fr}@media (min-width:860px){.data-grid.two-up{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.data-card{background:var(--panel2);border:1px solid var(--line);border-radius:16px;padding:14px}.mini-row{display:grid;grid-template-columns:120px 1fr;gap:8px;padding:6px 0}.mini-key{font-weight:700;font-size:.9rem}.pill{display:inline-flex;align-items:center;padding:4px 10px;border-radius:999px;background:#314b84;color:#dce7ff;font-weight:700;font-size:.82rem;border:1px solid #4060a8}.mini-val{color:var(--text)}
+.scheme-grid{display:grid;grid-template-columns:1fr;gap:12px;margin-top:12px}@media (min-width:860px){.scheme-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}.scheme-button summary{display:flex;align-items:center;gap:14px;padding:16px 18px}.icon-placeholder{width:44px;height:44px;border-radius:12px;border:1px dashed var(--line);display:flex;align-items:center;justify-content:center;color:var(--muted);flex:0 0 44px}.icon-note{font-size:.82rem;color:var(--muted);margin-top:8px}
+footer{padding:24px 18px 36px;text-align:center;color:var(--muted);font-size:.92rem}
+  </style>
+ </head>
+ <body>
+  <div class="topbar">
+   <button aria-label="Меню" class="iconbtn" onclick="toggleDrawer()">
+    ☰
+   </button>
+   <div class="brand">
+    <img alt="ОЧИ" src="Vertical+slogan-400h.png"/>
+    <div class="brandtxt">
+     <div class="site">
+      ОЧИ — ресурси за наблюдатели
+     </div>
+     <div class="page">
+      Основни инструкции
+     </div>
+    </div>
+   </div>
+  </div>
+  <div class="scrim" id="scrim" onclick="toggleDrawer(false)">
+  </div>
+  <aside class="drawer" id="drawer">
+   <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+    <strong>
+     Документи
+    </strong>
+    <button class="iconbtn" onclick="toggleDrawer(false)">
+     ✕
+    </button>
+   </div>
+   <nav>
+    <a class="" href="osnovni-instrukcii.html">
+     Основни инструкции
+    </a>
+    <a class="" href="checklist.html">
+     Checklist
+    </a>
+    <a class="active" href="video-checklist.html">
+     Video checklist
+    </a>
+    <a class="" href="narusheniya.html">
+     Нарушения
+    </a>
+    <a class="" href="faq.html">
+     Често задавани въпроси
+    </a>
+    <a class="" href="rezume.html">
+     Резюме на указанията на СИК
+    </a>
+   </nav>
+   <div style="margin-top:18px;padding-top:14px;border-top:1px solid var(--line)">
+    <div class="card-label">
+     Скок в документа
+    </div>
+    <div class="jump-links">
+     <a href="#1-stapki-predi-izborniya-den">
+      1. Стъпки преди изборния ден
+     </a>
+     <a href="#2-zadachi-pri-nablyudenieto">
+      2. Задачи при наблюдението
+     </a>
+     <a href="#3-obshti-pravila-za-povedenie">
+      3. Общи правила за поведение
+     </a>
+     <a href="#4-kak-se-svarzvate-s-ekipa-na-ochi-i-budni-hora">
+      4. Как се свързвате с екипа на ОЧИ и Будни хора
+     </a>
+     <a href="#5-pregled-na-videonablyudenieto">
+      5. Преглед на видеонаблюдението
+     </a>
+     <a href="#spisak-na-ostanalite-faylove">
+      Списък на останалите файлове
+     </a>
+     <a href="#dopalnitelni-resursi">
+      Допълнителни ресурси
+     </a>
+    </div>
+   </div>
+  </aside>
+  <main>
+   <section class="hero">
+    <h1>
+     Основни инструкции
+    </h1>
+    <p>
+     Подготовка, поведение, комуникация и карта на ресурсите.
+    </p>
+    <div class="jump-links">
+     <a href="#1-stapki-predi-izborniya-den">
+      1. Стъпки преди изборния ден
+     </a>
+     <a href="#2-zadachi-pri-nablyudenieto">
+      2. Задачи при наблюдението
+     </a>
+     <a href="#3-obshti-pravila-za-povedenie">
+      3. Общи правила за поведение
+     </a>
+     <a href="#4-kak-se-svarzvate-s-ekipa-na-ochi-i-budni-hora">
+      4. Как се свързвате с екипа на ОЧИ и Будни хора
+     </a>
+     <a href="#5-pregled-na-videonablyudenieto">
+      5. Преглед на видеонаблюдението
+     </a>
+     <a href="#spisak-na-ostanalite-faylove">
+      Списък на останалите файлове
+     </a>
+     <a href="#dopalnitelni-resursi">
+      Допълнителни ресурси
+     </a>
+    </div>
+   </section>
+   <section class="info-card">
+    <div class="card-label">
+     Важно
+    </div>
+    <div class="card-body">
+     Важно: наблюдателят носи удостоверението си от ЦИК, документ за самоличност и отличителен знак на ОЧИ. Телефон не се ползва в секцията през изборния ден; за връзка се излиза навън. При броенето заснемане е възможно само с разрешение на СИК и с позоваване на чл. 272 ИК и Решение № 4471 на ЦИК.
+    </div>
+   </section>
+   <details class="section" id="1-stapki-predi-izborniya-den" open="">
+    <summary>
+     <span>
+      1. Стъпки преди изборния ден
+     </span>
+     <span>
+      ▾
+     </span>
+    </summary>
+    <div class="section-body">
+     <p>
+      Преминете определените онлайн обучения на ОЧИ.
+     </p>
+     <p>
+      Потвърдете с нас секцията или секциите, в които ще наблюдавате.
+     </p>
+     <p>
+      Получете удостоверението/регистрацията, с която ще се легитимирате като наблюдател.
+     </p>
+     <p>
+      Принтирайте бадж за наблюдател
+     </p>
+     <p>
+      Проверете дали сте добавени във вайбър групата за вашия район или екип.
+     </p>
+     <p>
+      Запознайте се предварително с останалите документи: чеклист, често задавани въпроси и основни нарушения.
+     </p>
+     <p>
+      Запознайте се с формите за попълване в изборния ден (вж. по-долу).
+     </p>
+    </div>
+   </details>
+   <details class="section" id="2-zadachi-pri-nablyudenieto" open="">
+    <summary>
+     <span>
+      2. Задачи при наблюдението
+     </span>
+     <span>
+      ▾
+     </span>
+    </summary>
+    <div class="section-body">
+     <p>
+      По възможност бъдете в избраната секция от началото на изборния ден. Ако гласувате на друго място, в зависимост от логистиката можете да направите това по-късно през деня, или първо да гласувате в своята секция, след което да преминете към секцията за наблюдение.
+     </p>
+     <p>
+      Ако сте в място с повече секции, като училище, можете да наблюдавате във всяка от тях, но с цел по-концентрицирано наблюдение, не съветваме да са повече от 2-3. Броенето можете да наблюдавате само в една секция.
+     </p>
+     <p>
+      Към 18:00 най-късно, по възможност попълнете формата за откриване и изборен ден.
+     </p>
+     <p>
+      След броенето поискайте протокол и попълнете формата за закриване и броене. Проверете по възможност протокола с приложението eProtocol от сайта на ЦИК и при разминаване на контролите обърнете внимание на СИК и ни уведомете.
+     </p>
+     <p>
+      Ако забележите проблем на база на чеклиста или останалите материали, моля след като говорите със СИК, както е указано по-долу, излезте спокойно, попълнете формата за сигнал и се свържете с нас на вайбър или телефон.
+     </p>
+     <p>
+      Видеозаписите са на адрес:
+      <a href="https://evideo.bg" rel="noopener" style="color:#111827;background:#ffd54d;padding:0 .2rem;border-radius:.2rem;font-weight:700;text-decoration:none;" target="_blank">
+       https://evideo.bg
+      </a>
+      .
+     </p>
+    </div>
+   </details>
+   <details class="section" id="3-obshti-pravila-za-povedenie">
+    <summary>
+     <span>
+      3. Общи правила за поведение
+     </span>
+     <span>
+      ▾
+     </span>
+    </summary>
+    <div class="section-body">
+     <p>
+      В секцията поздравете всички, обърнете внимание кой кого представлява, представете се приятелски и се легитимирайте с документ като представители на сдружение Будни хора, към които е вашата регистрация
+     </p>
+     <p>
+      Бъдете спокойни, неутрални и учтиви.
+     </p>
+     <p>
+      Не спорете с избиратели и не пречете на работата на СИК.
+     </p>
+     <p>
+      Не давайте политически оценки и не агитирате.
+     </p>
+     <p>
+      Не изказвайте прибързани твърдения; първо документирайте фактите.
+     </p>
+     <p>
+      При проблем задавайте въпроси и правете бележки към СИК, вместо да влизате в конфликт.
+     </p>
+     <p>
+      При всеки сериозен проблем свържете се с нас на телефона на ОЧИ или във вайбър група.
+     </p>
+     <p>
+      При спешна нужда особено съмнения за купен вот, можете да потърсите МВР (тел. 029011298) и после се свържете с нас.
+     </p>
+     <p>
+      Няма нужда да сте целия ден в секцията, но следва да сте там при приключване на деня и броене
+     </p>
+     <p>
+      Задължително поискайте протокол.
+     </p>
+    </div>
+   </details>
+   <details class="section" id="4-kak-se-svarzvate-s-ekipa-na-ochi-i-budni-hora">
+    <summary>
+     <span>
+      4. Как се свързвате с екипа на ОЧИ и Будни хора
+     </span>
+     <span>
+      ▾
+     </span>
+    </summary>
+    <div class="section-body">
+     <p>
+      Вайбър група на наблюдателите.
+     </p>
+     <p>
+      Телефон на ОЧИ:
+      - поискайте в групата при нужда
+     </p>
+     <p>
+      Форма за сигнал за инцидент:
+      <a href="https://forms.gle/ujhAyCopsdRHKVDN9" rel="noopener" style="color:#111827;background:#ffd54d;padding:0 .2rem;border-radius:.2rem;font-weight:700;text-decoration:none;" target="_blank">
+       форма за сигнал
+      </a>
+     </p>
+     <p>
+      Форма за откриване и изборен ден:
+      <a href="https://forms.gle/bSDUW6WCsYgi2QQe6" rel="noopener" style="color:#111827;background:#ffd54d;padding:0 .2rem;border-radius:.2rem;font-weight:700;text-decoration:none;" target="_blank">
+       форма за откриване и изборен ден
+      </a>
+     </p>
+     <p>
+      Форма за край на изборния ден и броене:
+      <a href="https://forms.gle/XkmvY71btStJHwuT8" rel="noopener" style="color:#111827;background:#ffd54d;padding:0 .2rem;border-radius:.2rem;font-weight:700;text-decoration:none;" target="_blank">
+       форма за край на изборния ден и броене
+      </a>
+     </p>
+     <p>
+      При подаване на сигнал винаги включвайте: номер на секцията, населено място, точен час, кратко описание на факта, каква е реакцията на СИК и дали нарушението продължава.
+     </p>
+    </div>
+   </details>
+   <details class="section" id="5-pregled-na-videonablyudenieto">
+    <summary>
+     <span>
+      5. Преглед на видеонаблюдението
+     </span>
+     <span>
+      ▾
+     </span>
+    </summary>
+    <div class="section-body">
+     <p>
+      При разпределение за последващ преглед на видеонаблюдение използвайте таблицата за записване на секции, по които започвате преглед
+      <a href="https://docs.google.com/spreadsheets/d/1pzOrc5Fdm0mnxcY0g_eL8_pfbSGrdOSDgdFp6FLrvpE/edit?usp=sharing" rel="noopener" style="color:#111827;background:#ffd54d;padding:0 .2rem;border-radius:.2rem;font-weight:700;text-decoration:none;" target="_blank">
+       тук
+      </a>
+      .
+     </p>
+     <p>
+      След приключване на прегледа попълнете форма за обобщаване на изводи от видеонаблюдението:
+      <a href="https://forms.gle/KynGSWPJi3zkUF8v6" rel="noopener" style="color:#111827;background:#ffd54d;padding:0 .2rem;border-radius:.2rem;font-weight:700;text-decoration:none;" target="_blank">
+       форма за обобщаване на изводи
+      </a>
+      .
+     </p>
+     <p>
+      При преглед следете за наличие и на видео, и на аудио поток, за видимост към бюлетините, за ясно обявяване на гласовете и за непрекъснатост на записа – пълни инструкции има в чеклиста
+     </p>
+    </div>
+   </details>
+   <details class="section" id="spisak-na-ostanalite-faylove">
+    <summary>
+     <span>
+      Списък на останалите файлове
+     </span>
+     <span>
+      ▾
+     </span>
+    </summary>
+    <div class="section-body">
+     <div class="data-grid two-up">
+      <article class="data-card">
+       <div class="mini-row">
+        <div class="mini-key">
+         <span class="pill">
+          Ресурс
+         </span>
+        </div>
+        <div class="mini-val">
+         <a href="checklist.html">Checklist за проверка от наблюдателите при наблюдението</a>
+        </div>
+       </div>
+       <div class="mini-row">
+        <div class="mini-key">
+         <span class="pill">
+          Какво съдържа
+         </span>
+        </div>
+        <div class="mini-val">
+         Стъпки за наблюдение в секцията и при броенето.
+        </div>
+       </div>
+       <div class="mini-row">
+        <div class="mini-key">
+         <span class="pill">
+          Къде се ползва
+         </span>
+        </div>
+        <div class="mini-val">
+         За работа на място.
+        </div>
+       </div>
+      </article>
+      <article class="data-card">
+       <div class="mini-row">
+        <div class="mini-key">
+         <span class="pill">
+          Ресурс
+         </span>
+        </div>
+        <div class="mini-val">
+         <a href="video-checklist.html">Video Checklist за проверка на видео стрийм</a>
+        </div>
+       </div>
+       <div class="mini-row">
+        <div class="mini-key">
+         <span class="pill">
+          Какво съдържа
+         </span>
+        </div>
+        <div class="mini-val">
+         Стъпки за наблюдение от дистанционните наблюдатели.
+        </div>
+       </div>
+       <div class="mini-row">
+        <div class="mini-key">
+         <span class="pill">
+          Къде се ползва
+         </span>
+        </div>
+        <div class="mini-val">
+         При дистанционен преглед по време на броенето и в дните след това.
+        </div>
+       </div>
+      </article>
+      <article class="data-card">
+       <div class="mini-row">
+        <div class="mini-key">
+         <span class="pill">
+          Ресурс
+         </span>
+        </div>
+        <div class="mini-val">
+         <a href="narusheniya.html">Основни нарушения и манипулации</a>
+        </div>
+       </div>
+       <div class="mini-row">
+        <div class="mini-key">
+         <span class="pill">
+          Какво съдържа
+         </span>
+        </div>
+        <div class="mini-val">
+         Най-честите нарушения, признаци и какво следва да се направи.
+        </div>
+       </div>
+       <div class="mini-row">
+        <div class="mini-key">
+         <span class="pill">
+          Къде се ползва
+         </span>
+        </div>
+        <div class="mini-val">
+         За ориентация за най-важните неща, за които да подаваме сигнал.
+        </div>
+       </div>
+      </article>
+      <article class="data-card">
+       <div class="mini-row">
+        <div class="mini-key">
+         <span class="pill">
+          Ресурс
+         </span>
+        </div>
+        <div class="mini-val">
+         <a href="faq.html">Често задавани въпроси<a/>
+        </div>
+       </div>
+       <div class="mini-row">
+        <div class="mini-key">
+         <span class="pill">
+          Какво съдържа
+         </span>
+        </div>
+        <div class="mini-val">
+         Отговори на най-честите въпроси и вътрешни канали за комуникация.
+        </div>
+       </div>
+       <div class="mini-row">
+        <div class="mini-key">
+         <span class="pill">
+          Къде се ползва
+         </span>
+        </div>
+        <div class="mini-val">
+         За бърза справка в хода на деня.
+        </div>
+       </div>
+      </article>
+      <article class="data-card">
+       <div class="mini-row">
+        <div class="mini-key">
+         <span class="pill">
+          Ресурс
+         </span>
+        </div>
+        <div class="mini-val">
+         <a href="rezume.html">Резюме на методическите указания</a>
+        </div>
+       </div>
+       <div class="mini-row">
+        <div class="mini-key">
+         <span class="pill">
+          Какво съдържа
+         </span>
+        </div>
+        <div class="mini-val">
+         Кратко и практично обобщение на най-важното от методическите указания на ЦИК за изборния ден, броенето и протокола.
+        </div>
+       </div>
+       <div class="mini-row">
+        <div class="mini-key">
+         <span class="pill">
+          Къде се ползва
+         </span>
+        </div>
+        <div class="mini-val">
+         За бърза ориентация и справка при спорни ситуации.
+        </div>
+       </div>
+      </article>
+     </div>
+    </div>
+   </details>
+   <details class="section" id="dopalnitelni-resursi">
+    <summary>
+     <span>
+      Допълнителни ресурси
+     </span>
+     <span>
+      ▾
+     </span>
+    </summary>
+    <div class="section-body">
+     <div class="data-grid two-up">
+      <article class="data-card">
+       <div class="mini-row">
+        <div class="mini-key">
+         <span class="pill">
+          Ресурс
+         </span>
+        </div>
+        <div class="mini-val">
+         <a href="https://forms.gle/wp5tWPnNPDtFhRot8">Тест за наблюдатели от сдружение Будни хора</a>
+        </div>
+       </div>
+       <div class="mini-row">
+        <div class="mini-key">
+         <span class="pill">
+          Какво съдържа
+         </span>
+        </div>
+        <div class="mini-val">
+         Можете да проверите доколко сте се запознали с инструкциите, обучението и методическите указания
+        </div>
+       </div>
+       <div class="mini-row">
+        <div class="mini-key">
+         <span class="pill">
+          Къде се ползва
+         </span>
+        </div>
+        <div class="mini-val">
+         Преди изборите за подготовка
+        </div>
+       </div>
+      </article>
+      <article class="data-card">
+       <div class="mini-row">
+        <div class="mini-key">
+         <span class="pill">
+          Ресурс
+         </span>
+        </div>
+        <div class="mini-val">
+         <a href="Консолидирани_указания_СИК_2026_v2.pdf">Пълни методически указания – общо</a>
+        </div>
+       </div>
+       <div class="mini-row">
+        <div class="mini-key">
+         <span class="pill">
+          Какво съдържа
+         </span>
+        </div>
+        <div class="mini-val">
+         Консолидиран файл с пълните методически указания от ЦИК с възможност за търсене в PDF вид
+        </div>
+       </div>
+       <div class="mini-row">
+        <div class="mini-key">
+         <span class="pill">
+          Къде се ползва
+         </span>
+        </div>
+        <div class="mini-val">
+         За бърза ориентация при инцидент
+        </div>
+       </div>
+      </article>
+      <article class="data-card">
+       <div class="mini-row">
+        <div class="mini-key">
+         <span class="pill">
+          Ресурс
+         </span>
+        </div>
+        <div class="mini-val">
+         <a href="https://www.cik.bg/bg/decisions/4623/2026-03-23">Методически указания на сайта на ЦИК</a>
+        </div>
+       </div>
+       <div class="mini-row">
+        <div class="mini-key">
+         <span class="pill">
+          Какво съдържа
+         </span>
+        </div>
+        <div class="mini-val">
+         Оригиналният вид на методическите указания
+        </div>
+       </div>
+       <div class="mini-row">
+        <div class="mini-key">
+         <span class="pill">
+          Къде се ползва
+         </span>
+        </div>
+        <div class="mini-val">
+         В случай на спор с членове на СИК
+        </div>
+       </div>
+      </article>
+     </div>
+    </div>
+   </details>
+  </main>
+  <footer>
+  </footer>
+  <script>
+   function toggleDrawer(force){
+  const d=document.getElementById('drawer');const s=document.getElementById('scrim');
+  const open = force!==undefined ? force : !d.classList.contains('open');
+  d.classList.toggle('open',open); s.classList.toggle('show',open);
+}
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){toggleDrawer(false);}});
+  </script>
+ </body>
+</html>

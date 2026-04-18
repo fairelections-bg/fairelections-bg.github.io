@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="bg">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   Checklist — ОЧИ
+  </title>
+  <style>
+   :root {
+  --bg: #0a0f1f;
+  --bg2: #11182b;
+  --panel: #171f35;
+  --panel2: #1d2744;
+  --card: #223053;
+  --cardSoft: #2b3f6d;
+  --line: #354a7b;
+  --text: #eef3ff;
+  --muted: #c6d2f1;
+  --brand: #7ea7ff;
+  --accent: #4f7bff;
+  --highlight: #ffd54d;
+  --shadow: 0 12px 36px rgba(0,0,0,.28);
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: Inter, Arial, sans-serif;
+  background: linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
+  color: var(--text);
+}
+a { color: var(--brand); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background: rgba(10,15,31,.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+.iconbtn {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: var(--panel);
+  color: var(--text);
+  box-shadow: var(--shadow);
+  font-size: 1.2rem;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+.brand img { height: 38px; width: auto; }
+.brandtxt .site { font-weight: 800; color: var(--text); }
+.brandtxt .page {
+  font-size: .92rem;
+  color: var(--muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.drawer {
+  position: fixed;
+  inset: 0 auto 0 0;
+  width: min(86vw, 340px);
+  background: var(--panel);
+  transform: translateX(-110%);
+  transition: .22s ease;
+  z-index: 1100;
+  box-shadow: var(--shadow);
+  overflow: auto;
+  padding: 18px;
+}
+.drawer.open { transform: translateX(0); }
+.scrim {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.45);
+  opacity: 0;
+  pointer-events: none;
+  transition: .22s;
+  z-index: 1090;
+}
+.scrim.show { opacity: 1; pointer-events: auto; }
+.drawer nav a {
+  display: block;
+  padding: 12px 14px;
+  margin: 6px 0;
+  border-radius: 14px;
+  color: var(--text);
+}
+.drawer nav a.active,
+.drawer nav a:hover {
+  background: var(--cardSoft);
+  text-decoration: none;
+}
+.jump-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+.jump-links a {
+  display: inline-flex;
+  padding: 8px 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--panel2);
+  color: var(--text);
+  font-size: .92rem;
+}
+main {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 18px 14px 40px;
+}
+.hero {
+  background: linear-gradient(180deg, var(--panel) 0%, var(--panel2) 100%);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  box-shadow: var(--shadow);
+  padding: 22px 18px;
+  margin-bottom: 16px;
+}
+.hero h1 {
+  margin: 0 0 8px;
+  color: var(--text);
+  font-size: 1.6rem;
+}
+.hero p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.6;
+}
+.info-card {
+  background: linear-gradient(180deg, var(--card) 0%, var(--cardSoft) 100%);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+  padding: 16px 18px;
+  margin: 12px 0;
+}
+.info-card.alt {
+  background: linear-gradient(180deg, #31497f 0%, #395792 100%);
+}
+.card-label {
+  font-size: .82rem;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: var(--brand);
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+.card-body {
+  color: var(--text);
+  line-height: 1.62;
+}
+details.section {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  margin: 14px 0;
+}
+details.section > summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  color: var(--text);
+  font-weight: 800;
+}
+details.section > summary::-webkit-details-marker { display: none; }
+.section-body { padding: 0 18px 18px; }
+.section-intro {
+  margin: 0 0 12px;
+  color: var(--muted);
+}
+.bullet-list {
+  margin: 0;
+  padding-left: 20px;
+}
+.bullet-list li {
+  line-height: 1.62;
+  margin: .34rem 0;
+}
+.bullet-list.checklist {
+  list-style: none;
+  padding-left: 0;
+}
+.bullet-list.checklist li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: .45rem 0;
+}
+.bullet-list.checklist input[type=checkbox] {
+  margin-top: .22rem;
+  width: 18px;
+  height: 18px;
+  accent-color: var(--accent);
+}
+.inline-link,
+.highlight-link {
+  color: var(--highlight);
+  font-weight: 700;
+}
+.table-wrap {
+  overflow-x: auto;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  background: var(--panel2);
+  border: 1px solid var(--line);
+}
+th, td {
+  border: 1px solid var(--line);
+  padding: 10px 12px;
+  text-align: left;
+  vertical-align: top;
+  color: var(--text);
+}
+th {
+  background: #253763;
+  color: var(--highlight);
+}
+footer {
+  padding: 24px 18px 36px;
+  text-align: center;
+  color: var(--muted);
+  font-size: .92rem;
+}
+  </style>
+ </head>
+ <body>
+  <div class="topbar">
+   <button aria-label="Меню" class="iconbtn" onclick="toggleDrawer()">
+    ☰
+   </button>
+   <div class="brand">
+    <img alt="ОЧИ" src="Vertical+slogan-400h.png"/>
+    <div class="brandtxt">
+     <div class="site">
+      ОЧИ — ресурси за наблюдатели
+     </div>
+     <div class="page">
+      Checklist
+     </div>
+    </div>
+   </div>
+  </div>
+  <div class="scrim" id="scrim" onclick="toggleDrawer(false)">
+  </div>
+  <aside class="drawer" id="drawer">
+   <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+    <strong>
+     Документи
+    </strong>
+    <button class="iconbtn" onclick="toggleDrawer(false)">
+     ✕
+    </button>
+   </div>
+   <nav>
+    <a class="" href="osnovni-instrukcii.html">
+     Основни инструкции
+    </a>
+    <a class="active" href="checklist.html">
+     Checklist
+    </a>
+    <a class="" href="video-checklist.html">
+     Video checklist
+    </a>
+    <a class="" href="narusheniya.html">
+     Нарушения
+    </a>
+    <a class="" href="faq.html">
+     Често задавани въпроси
+    </a>
+    <a class="" href="rezume.html">
+     Резюме на указанията на СИК
+    </a>
+   </nav>
+   <div style="margin-top:18px;padding-top:14px;border-top:1px solid var(--line);">
+    <div class="card-label">
+     Скок в документа
+    </div>
+    <div class="jump-links">
+     <a href="#1-pri-vlizane-v-sektsiyata-i-po-vreme-na-denya">
+      1. При влизане в секцията и по време на деня
+     </a>
+     <a href="#2-aktivirane-na-mashinata">
+      2. Активиране на машината
+     </a>
+     <a href="#3-po-vreme-na-glasuvaneto">
+      3. По време на гласуването
+     </a>
+     <a href="#4-pri-problem-s-mashinata">
+      4. При проблем с машината
+     </a>
+     <a href="#5-zakrivane-na-denya">
+      5. Закриване на деня
+     </a>
+     <a href="#6-pri-broeneto-i-popalvaneto-na-protokola">
+      6. При броенето и попълването на протокола
+     </a>
+     <a href="#7-opakovane-i-predavane">
+      7. Опаковане и предаване
+     </a>
+     <a href="#8-otdelen-video-checklist">
+      8. Отделен video checklist
+     </a>
+     <a href="#9-koy-koga-mozhe-da-prisastva-v-izbornoto-pomeshtenie">
+      9. Кой кога може да присъства в изборното помещение
+     </a>
+    </div>
+   </div>
+  </aside>
+  <main>
+   <section class="hero">
+    <h1>
+     Checklist
+    </h1>
+    <p>
+     Проверка на откриването, гласуването, броенето и видеонаблюдението.
+    </p>
+    <div class="jump-links">
+     <a href="#1-pri-vlizane-v-sektsiyata-i-po-vreme-na-denya">
+      1. При влизане в секцията и по време на деня
+     </a>
+     <a href="#2-aktivirane-na-mashinata">
+      2. Активиране на машината
+     </a>
+     <a href="#3-po-vreme-na-glasuvaneto">
+      3. По време на гласуването
+     </a>
+     <a href="#4-pri-problem-s-mashinata">
+      4. При проблем с машината
+     </a>
+     <a href="#5-zakrivane-na-denya">
+      5. Закриване на деня
+     </a>
+     <a href="#6-pri-broeneto-i-popalvaneto-na-protokola">
+      6. При броенето и попълването на протокола
+     </a>
+     <a href="#7-opakovane-i-predavane">
+      7. Опаковане и предаване
+     </a>
+     <a href="#8-otdelen-video-checklist">
+      8. Отделен video checklist
+     </a>
+     <a href="#9-koy-koga-mozhe-da-prisastva-v-izbornoto-pomeshtenie">
+      9. Кой кога може да присъства в изборното помещение
+     </a>
+    </div>
+   </section>
+   <section class="info-card note-card">
+    <div class="card-label">
+     Важно
+    </div>
+    <div class="card-body">
+     Важно: наблюдателят носи удостоверението си от ЦИК и документ за самоличност. Не можете да снимате с телефон в секцията през изборния ден; за говорене също се излиза навън. При броенето заснемане е възможно само с разрешение на СИК и с позоваване на чл. 272 ИК и Решение № 4471 на ЦИК.
+    </div>
+   </section>
+   <section class="info-card alt">
+    <div class="card-body">
+     Чеклистът е за отмятане по време на деня и при броенето. При всеки сериозен проблем: направете спокойна бележка към СИК, запишете точен час и се свържете с нас на телефона на ОЧИ или във вайбър група. При нужда от спешна реакция или съмнения за купуване на вот, можете да търсите МВР (тел. 029011298).
+    </div>
+   </section>
+   <details class="section" id="1-pri-vlizane-v-sektsiyata-i-po-vreme-na-denya" open="">
+    <summary>
+     <span>
+      1. При влизане в секцията и по време на деня
+     </span>
+     <span>
+      ▾
+     </span>
+    </summary>
+    <div class="section-body">
+     <ul class="bullet-list checklist">
+      <li>
+       <input type="checkbox"/>
+       <span>
+        Легитимирах се пред СИК с удостоверение от ЦИК, документ за самоличност и отличителен знак.
+       </span>
+      </li>
+      <li>
+       <input type="checkbox"/>
+       <span>
+        Говори се само на български език.
+       </span>
+      </li>
+      <li>
+       <input type="checkbox"/>
+       <span>
+        Членовете на СИК носят обозначителни баджове през целия ден и не носят отличителни знаци на партия, коалиция или инициативен комитет.
+       </span>
+      </li>
+      <li>
+       <input type="checkbox"/>
+       <span>
+        Наблюдатели, застъпници, представители, анкетьори и други присъстващи се легитимират надлежно и носят коректни отличителни знаци без име на партия, коалиция или организация.
+       </span>
+      </li>
+      <li>
+       <input type="checkbox"/>
+       <span>
+        Няма повече от един застъпник на кандидатска листа, един наблюдател от организация и един представител от политическа сила; от една и съща политическа сила в помещението може да присъства само застъпник или представител.
+       </span>
+      </li>
+      <li>
+       <input type="checkbox"/>
+       <span>
+        Застъпници и представители на партии не гласуват в секцията.
+       </span>
+      </li>
+      <li>
+       <input type="checkbox"/>
+       <span>
+        Не се допускат в секцията лица във видимо нетрезво състояние, дрогирани или въоръжени.
+       </span>
+      </li>
+      <li>
+       <input type="checkbox"/>
+       <span>
+        Осигурено ми е място с пряка видимост към работата на СИК.
+       </span>
+      </li>
+      <li>
+       <input type="checkbox"/>
+       <span>
+        В секцията присъстват повече от половината членове на СИК.
+       </span>
+      </li>
+      <li>
+       <input type="checkbox"/>
+       <span>
+        При отварянето няма неправомерни ограничения за наблюдатели, застъпници и представители.
+       </span>
+      </li>
+      <li>
+       <input type="checkbox"/>
+       <span>
+        Няма други лица извън допустимите и избирателите.
+       </span>
+      </li>
+      <li>
+       <input type="checkbox"/>
+       <span>
+        Таблото пред секцията съдържа необходимите реквизити: кандидатски листи, указания за преференции и гласуване, телефони за сигнали, образец на бюлетина, указания за машинно гласуване и писмените решения на СИК.
+       </span>
+      </li>
+      <li>
+       <input type="checkbox"/>
+       <span>
+        Не е маркирана партия или коалиция върху образеца на бюлетината или върху указателните табла.
+       </span>
+      </li>
+      <li>
+       <input type="checkbox"/>
+       <span>
+        В паравана или зоната за гласуване има химикал със син цвят и необходимите указателни табла; параванът и разположението на машината реално пазят тайната на вота.
+       </span>
+      </li>
+      <li>
+       <input type="checkbox"/>
+       <span>
+        Кутията за хартиени бюлетини, кутията за бюлетини от машинно гласуване и кутията за отрязъците са показани празни преди запечатване и са правилно запечатани с ленти, подписи и печат.
+       </span>
+      </li>
+      <li>
+       <input type="checkbox"/>
+       <span>
+        Печатът на СИК е изваден от плика, маркиран е и е съставен протокол с три отпечатъка; печатът не се изнася от изборното помещение.
+       </span>
+      </li>
+      <li>
+       <input type="checkbox"/>
+       <span>
+        Разпечатан е образец на хартиена бюлетина и е поставен на таблото.
+       </span>
+      </li>
+      <li>
+       <input type="checkbox"/>
+       <span>
+        На видно място е оставен телефонът за сигнали на МВР и телефонът за връзка с РИК.
+       </span>
+      </li>
+      <li>
+       <input type="checkbox"/>
+       <span>
+        На видно място е видим хеш кодът от машината за сравнение на разписките.
+       </span>
+      </li>
+      <li>
+       <input type="checkbox"/>
+       <span>
+        Около секцията няма незаконна агитация, материали в 50-метровата зона, раздаване на брошури, агитация на чужд език или присъствие на кандидати и партийни активисти в непосредствена близост.
+       </span>
+      </li>
+      <li>
+       <input type="checkbox"/>
+       <span>
+        Около секцията няма признаци за купуване или контролиране на гласове: групи хора, списъци, събиране на лични карти, разпитване за вота, раздаване на пари, храна или други облаги, наблюдение или снимане на избиратели, необичайни автомобили и заплахи.
+       </span>
+      </li>
+     </ul>
+    </div>
+   </details>
+   <details class="section" id="2-aktivirane-na-mashinata" open="">
+    <summary>
+     <span>
+      2. Активиране на машината
+     </span>
+     <span>
+      ▾
+     </span>
+    </summary>
+    <div class="section-body">
+     <p class="section-intro">
+      Ако сте в секцията при откриването на изборния ден.
+     </p>
+     <ul class="bullet-list checklist">
+      <li>
+       <input type="checkbox"/>
+       <span>
+        Изборният ден започва в 7:00 ч., но не по-късно от 8:00 ч.
+       </span>
+      </li>
+      <li>
+       <input type="checkbox"/>
+       <span>
+        СИК стартира машината по установения ред с карта „Член на СИК“ и ПИН.
+       </span>
+      </li>
+      <li>
+       <input type="checkbox"/>
+       <span>
+        Разпечатана е системната разписка.
+       </span>
+      </li>
+      <li>
+       <input type="checkbox"/>
+       <span>
+        Системната разписка е сравнена с получения хеш код.
+       </span>
+      </li>
+      <li>
+       <input type="checkbox"/>
+       <span>
+        Началният отчет показва, че с машината не е гласувано.
+       </span>
+      </li>
+      <li>
+       <input type="checkbox"/>
+       <span>
+        Системната разписка е поставена на видно място в изборното помещение.
+       </span>
+      </li>
+     </ul>
+    </div>
+   </details>
+   <details class="section" id="3-po-vreme-na-glasuvaneto">
+    <summary>
+     <span>
+      3. По време на гласуването
+     </span>
+     <span>
+      ▾
+     </span>
+    </summary>
+    <div class="section-body">
+     <ul class="bullet-list checklist">
+      <li>
+       <input type="checkbox"/>
+       <span>
+        Избирателите се допускат по ред, който не затруднява изборния процес, по възможност един по един.
+       </span>
+      </li>
+      <li>
+       <input type="checkbox"/>
+       <span>
+        Гласува се само с лична карта; не се допуска гласуване с шофьорска книжка или международен паспорт.
+       </span>
+      </li>
+      <li>
+       <input type="checkbox"/>
+       <span>
+        Документите за самоличност се проверяват, а данните се вписват без да се диктуват на глас.
+       </span>
+      </li>
+      <li>
+       <input type="checkbox"/>
+       <span>
+        Под черта се вписват само лица от изрично допустимите категории; не се допуска масово или неосновано вписване, а при отказ трябва да има писмен отказ.
+       </span>
+      </li>
+      <li>
+       <input type="checkbox"/>
+       <span>
+        Студенти и ученици гласуват с лична карта и студентска или ученическа книжка, удостоверяваща редовно обучение, и гласуването се отбелязва в книжката.
+       </span>
+      </li>
+      <li>
+       <input type="checkbox"/>
+       <span>
+        Няма неправомерно насочване към хартия или машина и на избирателя се дава избор на технология на гласуване.
+       </span>
+      </li>
+      <li>
+       <input type="checkbox"/>
+       <span>
+        При хартиено гласуване бюлетината не се откъсва предварително, подава се с първи печат, след гласуване се сверява с кочана, поставя се втори печат и отрязъкът се отделя, без бюлетината да се разгъва; при сгрешена бюлетина се допуска само една нова, а сгрешената не се отваря и не се пуска в урната.
+       </span>
+      </li>
+      <li>
+       <input type="checkbox"/>
+       <span>
+        Следи се да не се бележат бюлетини, да не се внасят или изнасят бюлетини и да няма схема „индианска нишка“.
+       </span>
+      </li>
+      <li>
+       <input type="checkbox"/>
+       <span>
+        При машинно гласуване няма видимост към екрана от членове на СИК, застъпници или други лица, не се допуска стоене близо до машината и съдействие се оказва само от разстояние, без влияние върху избора.
+       </span>
+      </li>
+      <li>
+       <input type="checkbox"/>
+       <span>
+        При машинно гласуване бюлетината от машината се проверява от избирателя, сгъва се с текста навътре, получава печат и едва тогава се пуска в кутията.
+       </span>
+      </li>
+      <li>
+       <input type="checkbox"/>
+       <span>
+        Не се допуска заснемане или показване на вота.
+       </span>
+      </li>
+      <li>
+       <input type="checkbox"/>
+       <span>
+        Не се допуска нерегламентирано присъствие в секцията.
+       </span>
+      </li>
+      <li>
+       <input type="checkbox"/>
+       <span>
+        Придружител се допуска само за хора с увреждания, не за възрастни или неграмотни; едно лице може да придружава най-много двама души, вписва се в отделния списък и не може да е член на СИК, наблюдател, застъпник, представител, техник, анкетьор или охрана.
+       </span>
+      </li>
+      <li>
+       <input type="checkbox"/>
+       <span>
+        Ако на избирател се отказва гласуване, СИК трябва да мотивира отказа писмено и да го насочи към реда за обжалване, вместо просто да приключи случая.
+       </span>
+      </li>
+     </ul>
+    </div>
+   </details>
+   <details class="section" id="4-pri-problem-s-mashinata">
+    <summary>
+     <span>
+      4. При проблем с машината
+     </span>
+     <span>
+      ▾
+     </span>
+    </summary>
+    <div class="section-body">
+     <ul class="bullet-list checklist">
+      <li>
+       <input type="checkbox"/>
+       <span>
+        Председателят на СИК уведомява незабавно РИК, колцентъра и техника на „Сиела Норма“ АД.
+       </span>
+      </li>
+      <li>
+       <input type="checkbox"/>
+       <span>
+        Гласуването продължава с хартиени бюлетини без прекъсване, докато се чака техническият екип.
+       </span>
+      </li>
+      <li>
+       <input type="checkbox"/>
+       <span>
+        Гласуването с машина може да бъде спряно окончателно само при реален технически проблем, удостоверен с протокол от технически екип, и след разрешение от РИК.
+       </span>
+      </li>
+      <li>
+       <input type="checkbox"/>
+       <span>
+        Не се приема като основание за окончателно спиране дребен проблем, който може да бъде отстранен на място, като смяна на ролка, кабел, батерия или параван.
+       </span>
+      </li>
+      <li>
+       <input type="checkbox"/>
+       <span>
+        При спиране на машината се иска и се проверява наличният протокол и публичното решение на РИК за преминаване към гласуване само с хартия.
+       </span>
+      </li>
+     </ul>
+    </div>
+   </details>
+   <details class="section" id="5-zakrivane-na-denya">
+    <summary>
+     <span>
+      5. Закриване на деня
+     </span>
+     <span>
+      ▾
+     </span>
+    </summary>
+    <div class="section-body">
+     <ul class="bullet-list checklist">
+      <li>
+       <input type="checkbox"/>
+       <span>
+        В 20:00 ч. се установява дали има чакащи избиратели; след това гласуват само те, но не по-късно от 21:00 ч.
+       </span>
+      </li>
+      <li>
+       <input type="checkbox"/>
+       <span>
+        След края на гласуването машината се приключва по установения ред и се разпечатва финален отчет.
+       </span>
+      </li>
+      <li>
+       <input type="checkbox"/>
+       <span>
+        Финалният отчет се подписва от всички членове на СИК.
+       </span>
+      </li>
+      <li>
+       <input type="checkbox"/>
+       <span>
+        Двете флашпамети и петте смарткарти се поставят в отделни надписани пликове и се запечатват.
+       </span>
+      </li>
+      <li>
+       <input type="checkbox"/>
+       <span>
+        Използваната и резервната ролка се опаковат и надписват.
+       </span>
+      </li>
+      <li>
+       <input type="checkbox"/>
+       <span>
+        След обявяване края на изборния ден се включва видеоизлъчването и камерата е позиционирана така, че да показва всички действия на СИК.
+       </span>
+      </li>
+     </ul>
+    </div>
+   </details>
+   <details class="section" id="6-pri-broeneto-i-popalvaneto-na-protokola">
+    <summary>
+     <span>
+      6. При броенето и попълването на протокола
+     </span>
+     <span>
+      ▾
+     </span>
+    </summary>
+    <div class="section-body">
+     <ul class="bullet-list checklist">
+      <li>
+       <input type="checkbox"/>
+       <span>
+        Устройството за видеонаблюдение е включено и работи.
+       </span>
+      </li>
+      <li>
+       <input type="checkbox"/>
+       <span>
+        Видеопотокът показва мястото за броене, а не само общ план на помещението.
+       </span>
+      </li>
+      <li>
+       <input type="checkbox"/>
+       <span>
+        Аудиопотокът е включен, така че обявяването на гласовете и решенията на СИК да се чува.
+       </span>
+      </li>
+      <li>
+       <input type="checkbox"/>
+       <span>
+        На масата няма излишни пишещи средства до бюлетините и преди броенето са отстранени излишните книжа и материали.
+       </span>
+      </li>
+      <li>
+       <input type="checkbox"/>
+       <span>
+        Осигурена е добра видимост към бюлетините и за външните лица в помещението, не само за камерата.
+       </span>
+      </li>
+      <li>
+       <input type="checkbox"/>
+       <span>
+        Първо се попълва черновата, а след това данните се пренасят в протокола.
+       </span>
+      </li>
+      <li>
+       <input type="checkbox"/>
+       <span>
+        Първо се броят хартиените бюлетини, а след това бюлетините от машинно гласуване.
+       </span>
+      </li>
+      <li>
+       <input type="checkbox"/>
+       <span>
+        Хартиените бюлетини се показват една по една, вотът се вижда на камерата и се обявява ясно.
+       </span>
+      </li>
+      <li>
+       <input type="checkbox"/>
+       <span>
+        При недействителни бюлетини причината се обявява.
+       </span>
+      </li>
+      <li>
+       <input type="checkbox"/>
+       <span>
+        Преференциите се четат и отразяват по указанията; липсата на преференция не прави гласа недействителен.
+       </span>
+      </li>
+      <li>
+       <input type="checkbox"/>
+       <span>
+        При машинните бюлетини не се записват недействителни гласове.
+       </span>
+      </li>
+      <li>
+       <input type="checkbox"/>
+       <span>
+        Не се смесват хартиени и машинни бюлетини и не попадат чужди бюлетини в грешни купчинки.
+       </span>
+      </li>
+      <li>
+       <input type="checkbox"/>
+       <span>
+        При спор за действителност или недействителност СИК взема писмено решение и случаят се описва в протокол.
+       </span>
+      </li>
+      <li>
+       <input type="checkbox"/>
+       <span>
+        Наблюдателите не са изведени от помещението и имат пряка видимост.
+       </span>
+      </li>
+      <li>
+       <input type="checkbox"/>
+       <span>
+        Протоколът не се подписва празен или непопълнен и няма липсващи подписи.
+       </span>
+      </li>
+      <li>
+       <input type="checkbox"/>
+       <span>
+        След подписването председателят обявява резултатите, а копие от протокола може да бъде поискано по установения ред.
+       </span>
+      </li>
+      <li>
+       <input type="checkbox"/>
+       <span>
+        Копието от протокола следва да има три подписа и печат на СИК на всяка страница, а получателите се вписват в отделен списък.
+       </span>
+      </li>
+     </ul>
+    </div>
+   </details>
+   <details class="section" id="7-opakovane-i-predavane">
+    <summary>
+     <span>
+      7. Опаковане и предаване
+     </span>
+     <span>
+      ▾
+     </span>
+    </summary>
+    <div class="section-body">
+     <ul class="bullet-list checklist">
+      <li>
+       <input type="checkbox"/>
+       <span>
+        Бюлетините и материалите се разделят по вид и се опаковат по опис.
+       </span>
+      </li>
+      <li>
+       <input type="checkbox"/>
+       <span>
+        Използва се бял чувал, който се запечатва с лента и подписи.
+       </span>
+      </li>
+      <li>
+       <input type="checkbox"/>
+       <span>
+        Протоколите, техническите носители и останалите изборни книжа се предават отделно по установения ред.
+       </span>
+      </li>
+      <li>
+       <input type="checkbox"/>
+       <span>
+        Следи се за смесване на бюлетини, липсващи подписи, липсващ бял чувал или непълен комплект документи.
+       </span>
+      </li>
+     </ul>
+    </div>
+   </details>
+   <details class="section" id="8-otdelen-video-checklist">
+    <summary>
+     <span>
+      8. Отделен video checklist
+     </span>
+     <span>
+      ▾
+     </span>
+    </summary>
+    <div class="section-body">
+     <p>
+      Подробният checklist за преглед само на видеонаблюдението е изваден в отделен файл.
+     </p>
+     <p>
+      <a class="highlight-link" href="video-checklist.html">
+       Отвори video-checklist.html
+      </a>
+     </p>
+    </div>
+   </details>
+   <details class="section" id="9-koy-koga-mozhe-da-prisastva-v-izbornoto-pomeshtenie">
+    <summary>
+     <span>
+      9. Кой кога може да присъства в изборното помещение
+     </span>
+     <span>
+      ▾
+     </span>
+    </summary>
+    <div class="section-body">
+     <div class="table-wrap">
+      <table>
+       <thead>
+        <tr>
+         <th>
+          Етап
+         </th>
+         <th>
+          Кой може да присъства
+         </th>
+        </tr>
+       </thead>
+       <tbody>
+        <tr>
+         <td>
+          При получаване на изборните книжа и подготовка на секциите
+         </td>
+         <td>
+          Кандидати; наблюдатели – български и чуждестранни; застъпници.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          При откриване на изборния ден
+         </td>
+         <td>
+          Избиратели; кандидати; наблюдатели – български и чуждестранни; застъпници; представители на партии, коалиции и инициативни комитети; представители на средствата за масово осведомяване.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          По време на гласуването
+         </td>
+         <td>
+          Наблюдатели – български и чуждестранни; застъпници; представители на партии, коалиции и инициативни комитети; представители на средствата за масово осведомяване.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          При отваряне на избирателните кутии и установяване на резултатите
+         </td>
+         <td>
+          Кандидати; наблюдатели – български и чуждестранни; застъпници; представители на партии, коалиции и инициативни комитети; представители на средствата за масово осведомяване; анкетьори.
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </details>
+  </main>
+  <footer>
+  </footer>
+  <script>
+   function toggleDrawer(force) {
+        const d = document.getElementById('drawer');
+        const s = document.getElementById('scrim');
+        const open = force !== undefined ? force : !d.classList.contains('open');
+        d.classList.toggle('open', open);
+        s.classList.toggle('show', open);
+      }
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          toggleDrawer(false);
+        }
+      });
+  </script>
+ </body>
+</html>
